@@ -1,0 +1,2 @@
+[2022-06-10 22:01:26,744] {taskinstance.py:845} INFO - Dependencies not met for <TaskInstance: gbq_pipeline.write_truncate_hackernews_agg 2022-06-07T10:00:00+00:00 [queued]>, dependency 'Previous Dagrun State' FAILED: The tasks downstream of the previous task instance <TaskInstance: gbq_pipeline.write_truncate_hackernews_agg 2022-06-06 10:00:00+00:00 [success]> haven't completed (and wait_for_downstream is True).
+[2022-06-10 22:01:26,749] {local_task_job.py:93} INFO - Task is not able to be run

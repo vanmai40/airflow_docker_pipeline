@@ -1,0 +1,250 @@
+[2022-06-06 14:22:02,583] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.write_truncate_github_agg 2022-06-03T10:00:00+00:00 [queued]>
+[2022-06-06 14:22:02,600] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.write_truncate_github_agg 2022-06-03T10:00:00+00:00 [queued]>
+[2022-06-06 14:22:02,601] {taskinstance.py:1042} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 14:22:02,601] {taskinstance.py:1043} INFO - Starting attempt 1 of 3
+[2022-06-06 14:22:02,601] {taskinstance.py:1044} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 14:22:02,611] {taskinstance.py:1063} INFO - Executing <Task(BigQueryOperator): write_truncate_github_agg> on 2022-06-03T10:00:00+00:00
+[2022-06-06 14:22:02,616] {standard_task_runner.py:52} INFO - Started process 115 to run task
+[2022-06-06 14:22:02,620] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'gbq_pipeline', 'write_truncate_github_agg', '2022-06-03T10:00:00+00:00', '--job-id', '304', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/gbq_pipeline.py', '--cfg-path', '/tmp/tmphy2yhik2', '--error-file', '/tmp/tmpaxqo3a46']
+[2022-06-06 14:22:02,622] {standard_task_runner.py:77} INFO - Job 304: Subtask write_truncate_github_agg
+[2022-06-06 14:22:02,656] {logging_mixin.py:104} INFO - Running <TaskInstance: gbq_pipeline.write_truncate_github_agg 2022-06-03T10:00:00+00:00 [running]> on host 92fcc90275da
+[2022-06-06 14:22:02,690] {taskinstance.py:1257} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=airflow@airflow.com
+AIRFLOW_CTX_DAG_OWNER=vanmai-airflow
+AIRFLOW_CTX_DAG_ID=gbq_pipeline
+AIRFLOW_CTX_TASK_ID=write_truncate_github_agg
+AIRFLOW_CTX_EXECUTION_DATE=2022-06-03T10:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-06-03T10:00:00+00:00
+[2022-06-06 14:22:02,691] {bigquery.py:680} INFO - Executing: 
+        with cte as
+        (
+          SELECT
+            FORMAT_TIMESTAMP("%Y%m%d", created_at) AS date,
+            actor.id as actor_id,
+            CONCAT('https://github.com/', repo.name) as github_repo,
+            type
+          FROM
+            `githubarchive.day.20220603`
+        )
+
+        SELECT
+          date,
+          github_repo,
+          count(IF(type='WatchEvent', type, NULL)) AS subs,
+          count(IF(type='PushEvent',  type, NULL)) AS pushes,
+          count(IF(type='PullRequestEvent',  type, NULL)) AS pullrequests,
+          count(IF(type='ForkEvent',  type, NULL)) AS copies,
+          count(IF(type in ('IssueCommentEvent','CommitCommentEvent','PullRequestReviewCommentEvent'),  type, NULL)) AS comments,
+          count(*) AS all_event
+        FROM cte
+        GROUP BY 1,2
+        ORDER BY all_event desc
+        limit 100
+        
+[2022-06-06 14:22:02,699] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py:2052 DeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2022-06-06 14:22:02,706] {bigquery.py:1510} INFO - Inserting job airflow_1654525322705645_f845e71c54c0547e47f5c531a84113b0
+[2022-06-06 14:22:07,311] {taskinstance.py:1166} INFO - Marking task as SUCCESS. dag_id=gbq_pipeline, task_id=write_truncate_github_agg, execution_date=20220603T100000, start_date=20220606T142202, end_date=20220606T142207
+[2022-06-06 14:22:07,336] {taskinstance.py:1220} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2022-06-06 14:22:07,369] {local_task_job.py:146} INFO - Task exited with return code 0
+[2022-06-06 15:01:27,550] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.write_truncate_github_agg 2022-06-03T10:00:00+00:00 [queued]>
+[2022-06-06 15:01:27,569] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.write_truncate_github_agg 2022-06-03T10:00:00+00:00 [queued]>
+[2022-06-06 15:01:27,569] {taskinstance.py:1042} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 15:01:27,570] {taskinstance.py:1043} INFO - Starting attempt 1 of 3
+[2022-06-06 15:01:27,570] {taskinstance.py:1044} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 15:01:27,578] {taskinstance.py:1063} INFO - Executing <Task(BigQueryOperator): write_truncate_github_agg> on 2022-06-03T10:00:00+00:00
+[2022-06-06 15:01:27,582] {standard_task_runner.py:52} INFO - Started process 99 to run task
+[2022-06-06 15:01:27,585] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'gbq_pipeline', 'write_truncate_github_agg', '2022-06-03T10:00:00+00:00', '--job-id', '332', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/gbq_pipeline.py', '--cfg-path', '/tmp/tmpa3qqm4yn', '--error-file', '/tmp/tmpn1af_u9e']
+[2022-06-06 15:01:27,587] {standard_task_runner.py:77} INFO - Job 332: Subtask write_truncate_github_agg
+[2022-06-06 15:01:27,624] {logging_mixin.py:104} INFO - Running <TaskInstance: gbq_pipeline.write_truncate_github_agg 2022-06-03T10:00:00+00:00 [running]> on host c40819a450e3
+[2022-06-06 15:01:27,656] {taskinstance.py:1257} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=airflow@airflow.com
+AIRFLOW_CTX_DAG_OWNER=vanmai-airflow
+AIRFLOW_CTX_DAG_ID=gbq_pipeline
+AIRFLOW_CTX_TASK_ID=write_truncate_github_agg
+AIRFLOW_CTX_EXECUTION_DATE=2022-06-03T10:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-06-03T10:00:00+00:00
+[2022-06-06 15:01:27,658] {bigquery.py:680} INFO - Executing: 
+        with cte as
+        (
+          SELECT
+            FORMAT_TIMESTAMP("%Y%m%d", created_at) AS date,
+            actor.id as actor_id,
+            CONCAT('https://github.com/', repo.name) as github_repo,
+            type
+          FROM
+            `githubarchive.day.20220603`
+        )
+
+        SELECT
+          date,
+          github_repo,
+          count(IF(type='WatchEvent', type, NULL)) AS subs,
+          count(IF(type='PushEvent',  type, NULL)) AS pushes,
+          count(IF(type='PullRequestEvent',  type, NULL)) AS pullrequests,
+          count(IF(type='ForkEvent',  type, NULL)) AS copies,
+          count(IF(type in ('IssueCommentEvent','CommitCommentEvent','PullRequestReviewCommentEvent'),  type, NULL)) AS comments,
+          count(*) AS all_event
+        FROM cte
+        GROUP BY 1,2
+        ORDER BY all_event desc
+        
+[2022-06-06 15:01:27,666] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py:2052 DeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2022-06-06 15:01:27,675] {bigquery.py:1510} INFO - Inserting job airflow_1654527687674616_034455ff72c3fdcd365222898fdf3329
+[2022-06-06 15:01:34,743] {taskinstance.py:1166} INFO - Marking task as SUCCESS. dag_id=gbq_pipeline, task_id=write_truncate_github_agg, execution_date=20220603T100000, start_date=20220606T150127, end_date=20220606T150134
+[2022-06-06 15:01:34,766] {taskinstance.py:1220} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2022-06-06 15:01:34,790] {local_task_job.py:146} INFO - Task exited with return code 0
+[2022-06-06 17:01:54,217] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.write_truncate_github_agg 2022-06-03T10:00:00+00:00 [queued]>
+[2022-06-06 17:01:54,237] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.write_truncate_github_agg 2022-06-03T10:00:00+00:00 [queued]>
+[2022-06-06 17:01:54,237] {taskinstance.py:1042} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 17:01:54,237] {taskinstance.py:1043} INFO - Starting attempt 1 of 3
+[2022-06-06 17:01:54,237] {taskinstance.py:1044} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 17:01:54,244] {taskinstance.py:1063} INFO - Executing <Task(BigQueryOperator): write_truncate_github_agg> on 2022-06-03T10:00:00+00:00
+[2022-06-06 17:01:54,249] {standard_task_runner.py:52} INFO - Started process 873 to run task
+[2022-06-06 17:01:54,251] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'gbq_pipeline', 'write_truncate_github_agg', '2022-06-03T10:00:00+00:00', '--job-id', '590', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/gbq_pipeline.py', '--cfg-path', '/tmp/tmp63_97bw9', '--error-file', '/tmp/tmp8pa0jvtl']
+[2022-06-06 17:01:54,253] {standard_task_runner.py:77} INFO - Job 590: Subtask write_truncate_github_agg
+[2022-06-06 17:01:54,288] {logging_mixin.py:104} INFO - Running <TaskInstance: gbq_pipeline.write_truncate_github_agg 2022-06-03T10:00:00+00:00 [running]> on host c40819a450e3
+[2022-06-06 17:01:54,317] {taskinstance.py:1257} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=airflow@airflow.com
+AIRFLOW_CTX_DAG_OWNER=vanmai-airflow
+AIRFLOW_CTX_DAG_ID=gbq_pipeline
+AIRFLOW_CTX_TASK_ID=write_truncate_github_agg
+AIRFLOW_CTX_EXECUTION_DATE=2022-06-03T10:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-06-03T10:00:00+00:00
+[2022-06-06 17:01:54,319] {bigquery.py:680} INFO - Executing: 
+        with cte as
+        (
+          SELECT
+            FORMAT_TIMESTAMP("%Y%m%d", created_at) AS date,
+            actor.id as actor_id,
+            CONCAT('https://github.com/', repo.name) as github_repo,
+            type
+          FROM
+            `githubarchive.day.20220603`
+        )
+
+        SELECT
+          date,
+          github_repo,
+          count(IF(type='WatchEvent', type, NULL)) AS subs,
+          count(IF(type='PushEvent',  type, NULL)) AS pushes,
+          count(IF(type='PullRequestEvent',  type, NULL)) AS pullrequests,
+          count(IF(type='ForkEvent',  type, NULL)) AS copies,
+          count(IF(type in ('IssueCommentEvent','CommitCommentEvent','PullRequestReviewCommentEvent'),  type, NULL)) AS comments,
+          count(*) AS all_event
+        FROM cte
+        GROUP BY 1,2
+        ORDER BY all_event desc
+        
+[2022-06-06 17:01:54,327] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py:2052 DeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2022-06-06 17:01:54,334] {bigquery.py:1510} INFO - Inserting job airflow_1654534914333906_034455ff72c3fdcd365222898fdf3329
+[2022-06-06 17:02:03,084] {taskinstance.py:1166} INFO - Marking task as SUCCESS. dag_id=gbq_pipeline, task_id=write_truncate_github_agg, execution_date=20220603T100000, start_date=20220606T170154, end_date=20220606T170203
+[2022-06-06 17:02:03,121] {taskinstance.py:1220} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2022-06-06 17:02:03,134] {local_task_job.py:146} INFO - Task exited with return code 0
+[2022-06-06 17:10:49,600] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.write_truncate_github_agg 2022-06-03T10:00:00+00:00 [queued]>
+[2022-06-06 17:10:49,620] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.write_truncate_github_agg 2022-06-03T10:00:00+00:00 [queued]>
+[2022-06-06 17:10:49,621] {taskinstance.py:1042} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 17:10:49,621] {taskinstance.py:1043} INFO - Starting attempt 1 of 3
+[2022-06-06 17:10:49,621] {taskinstance.py:1044} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 17:10:49,629] {taskinstance.py:1063} INFO - Executing <Task(BigQueryOperator): write_truncate_github_agg> on 2022-06-03T10:00:00+00:00
+[2022-06-06 17:10:49,634] {standard_task_runner.py:52} INFO - Started process 990 to run task
+[2022-06-06 17:10:49,637] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'gbq_pipeline', 'write_truncate_github_agg', '2022-06-03T10:00:00+00:00', '--job-id', '630', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/gbq_pipeline.py', '--cfg-path', '/tmp/tmp4ij4dmtd', '--error-file', '/tmp/tmp7lusgb3h']
+[2022-06-06 17:10:49,640] {standard_task_runner.py:77} INFO - Job 630: Subtask write_truncate_github_agg
+[2022-06-06 17:10:49,675] {logging_mixin.py:104} INFO - Running <TaskInstance: gbq_pipeline.write_truncate_github_agg 2022-06-03T10:00:00+00:00 [running]> on host c40819a450e3
+[2022-06-06 17:10:49,708] {taskinstance.py:1257} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=airflow@airflow.com
+AIRFLOW_CTX_DAG_OWNER=vanmai-airflow
+AIRFLOW_CTX_DAG_ID=gbq_pipeline
+AIRFLOW_CTX_TASK_ID=write_truncate_github_agg
+AIRFLOW_CTX_EXECUTION_DATE=2022-06-03T10:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-06-03T10:00:00+00:00
+[2022-06-06 17:10:49,710] {bigquery.py:680} INFO - Executing: 
+        with cte as
+        (
+          SELECT
+            FORMAT_TIMESTAMP("%Y%m%d", created_at) AS date,
+            actor.id as actor_id,
+            CONCAT('https://github.com/', repo.name) as github_repo,
+            type
+          FROM
+            `githubarchive.day.20220603`
+        )
+
+        SELECT
+          date,
+          github_repo,
+          count(IF(type='WatchEvent', type, NULL)) AS subs,
+          count(IF(type='PushEvent',  type, NULL)) AS pushes,
+          count(IF(type='PullRequestEvent',  type, NULL)) AS pullrequests,
+          count(IF(type='ForkEvent',  type, NULL)) AS copies,
+          count(IF(type in ('IssueCommentEvent','CommitCommentEvent','PullRequestReviewCommentEvent'),  type, NULL)) AS comments,
+          count(*) AS all_event
+        FROM cte
+        GROUP BY 1,2
+        ORDER BY all_event desc
+        
+[2022-06-06 17:10:49,718] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py:2052 DeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2022-06-06 17:10:49,726] {bigquery.py:1510} INFO - Inserting job airflow_1654535449726179_034455ff72c3fdcd365222898fdf3329
+[2022-06-06 17:10:57,207] {taskinstance.py:1166} INFO - Marking task as SUCCESS. dag_id=gbq_pipeline, task_id=write_truncate_github_agg, execution_date=20220603T100000, start_date=20220606T171049, end_date=20220606T171057
+[2022-06-06 17:10:57,235] {taskinstance.py:1220} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2022-06-06 17:10:57,273] {local_task_job.py:146} INFO - Task exited with return code 0
+[2022-06-06 19:50:32,012] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.write_truncate_github_agg 2022-06-03T10:00:00+00:00 [queued]>
+[2022-06-06 19:50:32,028] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.write_truncate_github_agg 2022-06-03T10:00:00+00:00 [queued]>
+[2022-06-06 19:50:32,029] {taskinstance.py:1042} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 19:50:32,029] {taskinstance.py:1043} INFO - Starting attempt 1 of 3
+[2022-06-06 19:50:32,029] {taskinstance.py:1044} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 19:50:32,039] {taskinstance.py:1063} INFO - Executing <Task(BigQueryOperator): write_truncate_github_agg> on 2022-06-03T10:00:00+00:00
+[2022-06-06 19:50:32,045] {standard_task_runner.py:52} INFO - Started process 96 to run task
+[2022-06-06 19:50:32,047] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'gbq_pipeline', 'write_truncate_github_agg', '2022-06-03T10:00:00+00:00', '--job-id', '785', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/gbq_pipeline.py', '--cfg-path', '/tmp/tmp_e67lgpw', '--error-file', '/tmp/tmpfd8mb1me']
+[2022-06-06 19:50:32,049] {standard_task_runner.py:77} INFO - Job 785: Subtask write_truncate_github_agg
+[2022-06-06 19:50:32,081] {logging_mixin.py:104} INFO - Running <TaskInstance: gbq_pipeline.write_truncate_github_agg 2022-06-03T10:00:00+00:00 [running]> on host e8b9b26156db
+[2022-06-06 19:50:32,112] {taskinstance.py:1257} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=airflow@airflow.com
+AIRFLOW_CTX_DAG_OWNER=vanmai-airflow
+AIRFLOW_CTX_DAG_ID=gbq_pipeline
+AIRFLOW_CTX_TASK_ID=write_truncate_github_agg
+AIRFLOW_CTX_EXECUTION_DATE=2022-06-03T10:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-06-03T10:00:00+00:00
+[2022-06-06 19:50:32,113] {bigquery.py:680} INFO - Executing: 
+        with cte as
+        (
+          SELECT
+            FORMAT_TIMESTAMP("%Y%m%d", created_at) AS date,
+            actor.id as actor_id,
+            CONCAT('https://github.com/', repo.name) as github_repo,
+            type
+          FROM
+            `githubarchive.day.20220603`
+        )
+
+        SELECT
+          date,
+          github_repo,
+          count(IF(type='WatchEvent', type, NULL)) AS subs,
+          count(IF(type='PushEvent',  type, NULL)) AS pushes,
+          count(IF(type='PullRequestEvent',  type, NULL)) AS pullrequests,
+          count(IF(type='ForkEvent',  type, NULL)) AS copies,
+          count(IF(type in ('IssueCommentEvent','CommitCommentEvent','PullRequestReviewCommentEvent'),  type, NULL)) AS comments,
+          count(*) AS all_event
+        FROM cte
+        GROUP BY 1,2
+        ORDER BY all_event desc
+        
+[2022-06-06 19:50:32,120] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py:2052 DeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2022-06-06 19:50:32,128] {bigquery.py:1510} INFO - Inserting job airflow_1654545032127662_c8ec212e89db1248a21554fe16e65f80
+[2022-06-06 19:50:39,272] {taskinstance.py:1166} INFO - Marking task as SUCCESS. dag_id=gbq_pipeline, task_id=write_truncate_github_agg, execution_date=20220603T100000, start_date=20220606T195032, end_date=20220606T195039
+[2022-06-06 19:50:39,324] {taskinstance.py:1220} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2022-06-06 19:50:39,335] {local_task_job.py:146} INFO - Task exited with return code 0
+[2022-06-06 19:57:33,622] {taskinstance.py:845} INFO - Dependencies not met for <TaskInstance: gbq_pipeline.write_truncate_github_agg 2022-06-03T10:00:00+00:00 [queued]>, dependency 'Previous Dagrun State' FAILED: The tasks downstream of the previous task instance <TaskInstance: gbq_pipeline.write_truncate_github_agg 2022-06-02 10:00:00+00:00 [success]> haven't completed (and wait_for_downstream is True).
+[2022-06-06 19:57:33,624] {local_task_job.py:93} INFO - Task is not able to be run
+[2022-06-06 20:01:45,502] {taskinstance.py:845} INFO - Dependencies not met for <TaskInstance: gbq_pipeline.write_truncate_github_agg 2022-06-03T10:00:00+00:00 [queued]>, dependency 'Previous Dagrun State' FAILED: The tasks downstream of the previous task instance <TaskInstance: gbq_pipeline.write_truncate_github_agg 2022-06-02 10:00:00+00:00 [success]> haven't completed (and wait_for_downstream is True).
+[2022-06-06 20:01:45,504] {local_task_job.py:93} INFO - Task is not able to be run

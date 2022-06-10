@@ -1,0 +1,810 @@
+[2022-06-06 17:21:09,812] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.write_truncate_hackernews_agg 2022-05-01T10:00:00+00:00 [queued]>
+[2022-06-06 17:21:09,823] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.write_truncate_hackernews_agg 2022-05-01T10:00:00+00:00 [queued]>
+[2022-06-06 17:21:09,823] {taskinstance.py:1042} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 17:21:09,823] {taskinstance.py:1043} INFO - Starting attempt 1 of 3
+[2022-06-06 17:21:09,823] {taskinstance.py:1044} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 17:21:09,833] {taskinstance.py:1063} INFO - Executing <Task(BigQueryOperator): write_truncate_hackernews_agg> on 2022-05-01T10:00:00+00:00
+[2022-06-06 17:21:09,838] {standard_task_runner.py:52} INFO - Started process 81 to run task
+[2022-06-06 17:21:09,841] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'gbq_pipeline', 'write_truncate_hackernews_agg', '2022-05-01T10:00:00+00:00', '--job-id', '660', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/gbq_pipeline.py', '--cfg-path', '/tmp/tmpm6m1gfs_', '--error-file', '/tmp/tmp0qn2q31n']
+[2022-06-06 17:21:09,843] {standard_task_runner.py:77} INFO - Job 660: Subtask write_truncate_hackernews_agg
+[2022-06-06 17:21:09,878] {logging_mixin.py:104} INFO - Running <TaskInstance: gbq_pipeline.write_truncate_hackernews_agg 2022-05-01T10:00:00+00:00 [running]> on host f3f1e04b5b71
+[2022-06-06 17:21:09,907] {taskinstance.py:1257} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=airflow@airflow.com
+AIRFLOW_CTX_DAG_OWNER=vanmai-airflow
+AIRFLOW_CTX_DAG_ID=gbq_pipeline
+AIRFLOW_CTX_TASK_ID=write_truncate_hackernews_agg
+AIRFLOW_CTX_EXECUTION_DATE=2022-05-01T10:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-05-01T10:00:00+00:00
+[2022-06-06 17:21:09,908] {bigquery.py:680} INFO - Executing: 
+    SELECT
+      FORMAT_TIMESTAMP("%Y%m%d", timestamp) AS date,
+      `by` AS user,
+      id as story_id,
+      REGEXP_EXTRACT(url, "(https?://github.com/[^/]*/[^/#?]*)") as github_repo,
+      type,
+      length(text) length,
+      SUM(score) as score
+    FROM
+      `bigquery-public-data.hacker_news.full`
+    WHERE TRUE
+      AND FORMAT_TIMESTAMP("%Y%m%d", timestamp) = '20220501'
+      AND url LIKE '%https://github.com%'
+      AND url NOT LIKE '%github.com/blog/%'
+    GROUP BY 1,2,3,4,5,6
+    
+[2022-06-06 17:21:09,915] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py:2052 DeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2022-06-06 17:21:09,921] {bigquery.py:1510} INFO - Inserting job airflow_1654536069921128_b083f7d64f25e11b435062157ab9c588
+[2022-06-06 17:21:10,896] {taskinstance.py:1455} ERROR - 403 GET https://bigquery.googleapis.com/bigquery/v2/projects/airflow-project-352316/queries/airflow_1654536069921128_b083f7d64f25e11b435062157ab9c588?maxResults=0&location=US&prettyPrint=false: Quota exceeded: Your project exceeded quota for free query bytes scanned. For more information, see https://cloud.google.com/bigquery/docs/troubleshoot-quotas
+
+(job ID: airflow_1654536069921128_b083f7d64f25e11b435062157ab9c588)
+
+                           -----Query Job SQL Follows-----                           
+
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+   1:
+   2:    SELECT
+   3:      FORMAT_TIMESTAMP("%Y%m%d", timestamp) AS date,
+   4:      `by` AS user,
+   5:      id as story_id,
+   6:      REGEXP_EXTRACT(url, "(https?://github.com/[^/]*/[^/#?]*)") as github_repo,
+   7:      type,
+   8:      length(text) length,
+   9:      SUM(score) as score
+  10:    FROM
+  11:      `bigquery-public-data.hacker_news.full`
+  12:    WHERE TRUE
+  13:      AND FORMAT_TIMESTAMP("%Y%m%d", timestamp) = '20220501'
+  14:      AND url LIKE '%https://github.com%'
+  15:      AND url NOT LIKE '%github.com/blog/%'
+  16:    GROUP BY 1,2,3,4,5,6
+  17:    
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1112, in _run_raw_task
+    self._prepare_and_execute_task_with_callbacks(context, task)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1285, in _prepare_and_execute_task_with_callbacks
+    result = self._execute_task(context, task_copy)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1315, in _execute_task
+    result = task_copy.execute(context=context)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/operators/bigquery.py", line 706, in execute
+    encryption_configuration=self.encryption_configuration,
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py", line 2186, in run_query
+    job = self.insert_job(configuration=configuration, project_id=self.project_id)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/common/hooks/base_google.py", line 425, in inner_wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py", line 1512, in insert_job
+    job.result()
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/query.py", line 1159, in result
+    super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/base.py", line 631, in result
+    return super(_AsyncJob, self).result(timeout=timeout, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/future/polling.py", line 129, in result
+    self._blocking_poll(timeout=timeout, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/query.py", line 1016, in _blocking_poll
+    super(QueryJob, self)._blocking_poll(timeout=timeout, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/future/polling.py", line 107, in _blocking_poll
+    retry_(self._done_or_raise)(**kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/retry.py", line 286, in retry_wrapped_func
+    on_error=on_error,
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/retry.py", line 184, in retry_target
+    return target()
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/future/polling.py", line 85, in _done_or_raise
+    if not self.done(**kwargs):
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/query.py", line 999, in done
+    self._reload_query_results(retry=retry, timeout=timeout)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/query.py", line 1111, in _reload_query_results
+    timeout=transport_timeout,
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/client.py", line 1617, in _get_query_results
+    timeout=timeout,
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/client.py", line 640, in _call_api
+    return call()
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/retry.py", line 286, in retry_wrapped_func
+    on_error=on_error,
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/retry.py", line 184, in retry_target
+    return target()
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/_http.py", line 483, in api_request
+    raise exceptions.from_http_response(response)
+google.api_core.exceptions.Forbidden: 403 GET https://bigquery.googleapis.com/bigquery/v2/projects/airflow-project-352316/queries/airflow_1654536069921128_b083f7d64f25e11b435062157ab9c588?maxResults=0&location=US&prettyPrint=false: Quota exceeded: Your project exceeded quota for free query bytes scanned. For more information, see https://cloud.google.com/bigquery/docs/troubleshoot-quotas
+
+(job ID: airflow_1654536069921128_b083f7d64f25e11b435062157ab9c588)
+
+                           -----Query Job SQL Follows-----                           
+
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+   1:
+   2:    SELECT
+   3:      FORMAT_TIMESTAMP("%Y%m%d", timestamp) AS date,
+   4:      `by` AS user,
+   5:      id as story_id,
+   6:      REGEXP_EXTRACT(url, "(https?://github.com/[^/]*/[^/#?]*)") as github_repo,
+   7:      type,
+   8:      length(text) length,
+   9:      SUM(score) as score
+  10:    FROM
+  11:      `bigquery-public-data.hacker_news.full`
+  12:    WHERE TRUE
+  13:      AND FORMAT_TIMESTAMP("%Y%m%d", timestamp) = '20220501'
+  14:      AND url LIKE '%https://github.com%'
+  15:      AND url NOT LIKE '%github.com/blog/%'
+  16:    GROUP BY 1,2,3,4,5,6
+  17:    
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+[2022-06-06 17:21:10,899] {taskinstance.py:1503} INFO - Marking task as UP_FOR_RETRY. dag_id=gbq_pipeline, task_id=write_truncate_hackernews_agg, execution_date=20220501T100000, start_date=20220606T172109, end_date=20220606T172110
+[2022-06-06 17:21:10,939] {local_task_job.py:146} INFO - Task exited with return code 1
+[2022-06-06 17:22:56,752] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.write_truncate_hackernews_agg 2022-05-01T10:00:00+00:00 [queued]>
+[2022-06-06 17:22:56,761] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.write_truncate_hackernews_agg 2022-05-01T10:00:00+00:00 [queued]>
+[2022-06-06 17:22:56,762] {taskinstance.py:1042} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 17:22:56,762] {taskinstance.py:1043} INFO - Starting attempt 1 of 3
+[2022-06-06 17:22:56,762] {taskinstance.py:1044} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 17:22:56,772] {taskinstance.py:1063} INFO - Executing <Task(BigQueryOperator): write_truncate_hackernews_agg> on 2022-05-01T10:00:00+00:00
+[2022-06-06 17:22:56,775] {standard_task_runner.py:52} INFO - Started process 134 to run task
+[2022-06-06 17:22:56,778] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'gbq_pipeline', 'write_truncate_hackernews_agg', '2022-05-01T10:00:00+00:00', '--job-id', '678', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/gbq_pipeline.py', '--cfg-path', '/tmp/tmp9rjyqs29', '--error-file', '/tmp/tmpsgw0umo2']
+[2022-06-06 17:22:56,780] {standard_task_runner.py:77} INFO - Job 678: Subtask write_truncate_hackernews_agg
+[2022-06-06 17:22:56,814] {logging_mixin.py:104} INFO - Running <TaskInstance: gbq_pipeline.write_truncate_hackernews_agg 2022-05-01T10:00:00+00:00 [running]> on host f3f1e04b5b71
+[2022-06-06 17:22:56,844] {taskinstance.py:1257} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=airflow@airflow.com
+AIRFLOW_CTX_DAG_OWNER=vanmai-airflow
+AIRFLOW_CTX_DAG_ID=gbq_pipeline
+AIRFLOW_CTX_TASK_ID=write_truncate_hackernews_agg
+AIRFLOW_CTX_EXECUTION_DATE=2022-05-01T10:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-05-01T10:00:00+00:00
+[2022-06-06 17:22:56,846] {bigquery.py:680} INFO - Executing: 
+    SELECT
+      FORMAT_TIMESTAMP("%Y%m%d", timestamp) AS date,
+      `by` AS user,
+      id as story_id,
+      REGEXP_EXTRACT(url, "(https?://github.com/[^/]*/[^/#?]*)") as github_repo,
+      type,
+      length(text) length,
+      SUM(score) as score
+    FROM
+      `bigquery-public-data.hacker_news.full`
+    WHERE TRUE
+      AND FORMAT_TIMESTAMP("%Y%m%d", timestamp) = '20220501'
+      AND url LIKE '%https://github.com%'
+      AND url NOT LIKE '%github.com/blog/%'
+    GROUP BY 1,2,3,4,5,6
+    
+[2022-06-06 17:22:56,854] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py:2052 DeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2022-06-06 17:22:56,861] {bigquery.py:1510} INFO - Inserting job airflow_1654536176860480_b083f7d64f25e11b435062157ab9c588
+[2022-06-06 17:22:57,686] {taskinstance.py:1455} ERROR - 403 GET https://bigquery.googleapis.com/bigquery/v2/projects/airflow-project-352316/queries/airflow_1654536176860480_b083f7d64f25e11b435062157ab9c588?maxResults=0&location=US&prettyPrint=false: Quota exceeded: Your project exceeded quota for free query bytes scanned. For more information, see https://cloud.google.com/bigquery/docs/troubleshoot-quotas
+
+(job ID: airflow_1654536176860480_b083f7d64f25e11b435062157ab9c588)
+
+                           -----Query Job SQL Follows-----                           
+
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+   1:
+   2:    SELECT
+   3:      FORMAT_TIMESTAMP("%Y%m%d", timestamp) AS date,
+   4:      `by` AS user,
+   5:      id as story_id,
+   6:      REGEXP_EXTRACT(url, "(https?://github.com/[^/]*/[^/#?]*)") as github_repo,
+   7:      type,
+   8:      length(text) length,
+   9:      SUM(score) as score
+  10:    FROM
+  11:      `bigquery-public-data.hacker_news.full`
+  12:    WHERE TRUE
+  13:      AND FORMAT_TIMESTAMP("%Y%m%d", timestamp) = '20220501'
+  14:      AND url LIKE '%https://github.com%'
+  15:      AND url NOT LIKE '%github.com/blog/%'
+  16:    GROUP BY 1,2,3,4,5,6
+  17:    
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1112, in _run_raw_task
+    self._prepare_and_execute_task_with_callbacks(context, task)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1285, in _prepare_and_execute_task_with_callbacks
+    result = self._execute_task(context, task_copy)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1315, in _execute_task
+    result = task_copy.execute(context=context)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/operators/bigquery.py", line 706, in execute
+    encryption_configuration=self.encryption_configuration,
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py", line 2186, in run_query
+    job = self.insert_job(configuration=configuration, project_id=self.project_id)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/common/hooks/base_google.py", line 425, in inner_wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py", line 1512, in insert_job
+    job.result()
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/query.py", line 1159, in result
+    super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/base.py", line 631, in result
+    return super(_AsyncJob, self).result(timeout=timeout, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/future/polling.py", line 129, in result
+    self._blocking_poll(timeout=timeout, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/query.py", line 1016, in _blocking_poll
+    super(QueryJob, self)._blocking_poll(timeout=timeout, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/future/polling.py", line 107, in _blocking_poll
+    retry_(self._done_or_raise)(**kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/retry.py", line 286, in retry_wrapped_func
+    on_error=on_error,
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/retry.py", line 184, in retry_target
+    return target()
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/future/polling.py", line 85, in _done_or_raise
+    if not self.done(**kwargs):
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/query.py", line 999, in done
+    self._reload_query_results(retry=retry, timeout=timeout)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/query.py", line 1111, in _reload_query_results
+    timeout=transport_timeout,
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/client.py", line 1617, in _get_query_results
+    timeout=timeout,
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/client.py", line 640, in _call_api
+    return call()
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/retry.py", line 286, in retry_wrapped_func
+    on_error=on_error,
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/retry.py", line 184, in retry_target
+    return target()
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/_http.py", line 483, in api_request
+    raise exceptions.from_http_response(response)
+google.api_core.exceptions.Forbidden: 403 GET https://bigquery.googleapis.com/bigquery/v2/projects/airflow-project-352316/queries/airflow_1654536176860480_b083f7d64f25e11b435062157ab9c588?maxResults=0&location=US&prettyPrint=false: Quota exceeded: Your project exceeded quota for free query bytes scanned. For more information, see https://cloud.google.com/bigquery/docs/troubleshoot-quotas
+
+(job ID: airflow_1654536176860480_b083f7d64f25e11b435062157ab9c588)
+
+                           -----Query Job SQL Follows-----                           
+
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+   1:
+   2:    SELECT
+   3:      FORMAT_TIMESTAMP("%Y%m%d", timestamp) AS date,
+   4:      `by` AS user,
+   5:      id as story_id,
+   6:      REGEXP_EXTRACT(url, "(https?://github.com/[^/]*/[^/#?]*)") as github_repo,
+   7:      type,
+   8:      length(text) length,
+   9:      SUM(score) as score
+  10:    FROM
+  11:      `bigquery-public-data.hacker_news.full`
+  12:    WHERE TRUE
+  13:      AND FORMAT_TIMESTAMP("%Y%m%d", timestamp) = '20220501'
+  14:      AND url LIKE '%https://github.com%'
+  15:      AND url NOT LIKE '%github.com/blog/%'
+  16:    GROUP BY 1,2,3,4,5,6
+  17:    
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+[2022-06-06 17:22:57,690] {taskinstance.py:1503} INFO - Marking task as UP_FOR_RETRY. dag_id=gbq_pipeline, task_id=write_truncate_hackernews_agg, execution_date=20220501T100000, start_date=20220606T172256, end_date=20220606T172257
+[2022-06-06 17:22:57,716] {local_task_job.py:146} INFO - Task exited with return code 1
+[2022-06-06 17:26:59,925] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.write_truncate_hackernews_agg 2022-05-01T10:00:00+00:00 [queued]>
+[2022-06-06 17:26:59,934] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.write_truncate_hackernews_agg 2022-05-01T10:00:00+00:00 [queued]>
+[2022-06-06 17:26:59,935] {taskinstance.py:1042} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 17:26:59,935] {taskinstance.py:1043} INFO - Starting attempt 1 of 3
+[2022-06-06 17:26:59,936] {taskinstance.py:1044} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 17:26:59,946] {taskinstance.py:1063} INFO - Executing <Task(BigQueryOperator): write_truncate_hackernews_agg> on 2022-05-01T10:00:00+00:00
+[2022-06-06 17:26:59,950] {standard_task_runner.py:52} INFO - Started process 213 to run task
+[2022-06-06 17:26:59,953] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'gbq_pipeline', 'write_truncate_hackernews_agg', '2022-05-01T10:00:00+00:00', '--job-id', '704', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/gbq_pipeline.py', '--cfg-path', '/tmp/tmpq8d01yts', '--error-file', '/tmp/tmpiwlo_3nb']
+[2022-06-06 17:26:59,955] {standard_task_runner.py:77} INFO - Job 704: Subtask write_truncate_hackernews_agg
+[2022-06-06 17:26:59,987] {logging_mixin.py:104} INFO - Running <TaskInstance: gbq_pipeline.write_truncate_hackernews_agg 2022-05-01T10:00:00+00:00 [running]> on host f3f1e04b5b71
+[2022-06-06 17:27:00,019] {taskinstance.py:1257} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=airflow@airflow.com
+AIRFLOW_CTX_DAG_OWNER=vanmai-airflow
+AIRFLOW_CTX_DAG_ID=gbq_pipeline
+AIRFLOW_CTX_TASK_ID=write_truncate_hackernews_agg
+AIRFLOW_CTX_EXECUTION_DATE=2022-05-01T10:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-05-01T10:00:00+00:00
+[2022-06-06 17:27:00,021] {bigquery.py:680} INFO - Executing: 
+    SELECT
+      FORMAT_TIMESTAMP("%Y%m%d", timestamp) AS date,
+      `by` AS user,
+      id as story_id,
+      REGEXP_EXTRACT(url, "(https?://github.com/[^/]*/[^/#?]*)") as github_repo,
+      type,
+      length(text) length,
+      SUM(score) as score
+    FROM
+      `bigquery-public-data.hacker_news.full`
+    WHERE TRUE
+      AND FORMAT_TIMESTAMP("%Y%m%d", timestamp) = '20220501'
+      AND url LIKE '%https://github.com%'
+      AND url NOT LIKE '%github.com/blog/%'
+    GROUP BY 1,2,3,4,5,6
+    
+[2022-06-06 17:27:00,029] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py:2052 DeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2022-06-06 17:27:00,035] {bigquery.py:1510} INFO - Inserting job airflow_1654536420035443_b083f7d64f25e11b435062157ab9c588
+[2022-06-06 17:27:00,981] {taskinstance.py:1455} ERROR - 403 GET https://bigquery.googleapis.com/bigquery/v2/projects/airflow-project-352316/queries/airflow_1654536420035443_b083f7d64f25e11b435062157ab9c588?maxResults=0&location=US&prettyPrint=false: Quota exceeded: Your project exceeded quota for free query bytes scanned. For more information, see https://cloud.google.com/bigquery/docs/troubleshoot-quotas
+
+(job ID: airflow_1654536420035443_b083f7d64f25e11b435062157ab9c588)
+
+                           -----Query Job SQL Follows-----                           
+
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+   1:
+   2:    SELECT
+   3:      FORMAT_TIMESTAMP("%Y%m%d", timestamp) AS date,
+   4:      `by` AS user,
+   5:      id as story_id,
+   6:      REGEXP_EXTRACT(url, "(https?://github.com/[^/]*/[^/#?]*)") as github_repo,
+   7:      type,
+   8:      length(text) length,
+   9:      SUM(score) as score
+  10:    FROM
+  11:      `bigquery-public-data.hacker_news.full`
+  12:    WHERE TRUE
+  13:      AND FORMAT_TIMESTAMP("%Y%m%d", timestamp) = '20220501'
+  14:      AND url LIKE '%https://github.com%'
+  15:      AND url NOT LIKE '%github.com/blog/%'
+  16:    GROUP BY 1,2,3,4,5,6
+  17:    
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1112, in _run_raw_task
+    self._prepare_and_execute_task_with_callbacks(context, task)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1285, in _prepare_and_execute_task_with_callbacks
+    result = self._execute_task(context, task_copy)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1315, in _execute_task
+    result = task_copy.execute(context=context)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/operators/bigquery.py", line 706, in execute
+    encryption_configuration=self.encryption_configuration,
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py", line 2186, in run_query
+    job = self.insert_job(configuration=configuration, project_id=self.project_id)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/common/hooks/base_google.py", line 425, in inner_wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py", line 1512, in insert_job
+    job.result()
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/query.py", line 1159, in result
+    super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/base.py", line 631, in result
+    return super(_AsyncJob, self).result(timeout=timeout, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/future/polling.py", line 129, in result
+    self._blocking_poll(timeout=timeout, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/query.py", line 1016, in _blocking_poll
+    super(QueryJob, self)._blocking_poll(timeout=timeout, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/future/polling.py", line 107, in _blocking_poll
+    retry_(self._done_or_raise)(**kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/retry.py", line 286, in retry_wrapped_func
+    on_error=on_error,
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/retry.py", line 184, in retry_target
+    return target()
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/future/polling.py", line 85, in _done_or_raise
+    if not self.done(**kwargs):
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/query.py", line 999, in done
+    self._reload_query_results(retry=retry, timeout=timeout)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/query.py", line 1111, in _reload_query_results
+    timeout=transport_timeout,
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/client.py", line 1617, in _get_query_results
+    timeout=timeout,
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/client.py", line 640, in _call_api
+    return call()
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/retry.py", line 286, in retry_wrapped_func
+    on_error=on_error,
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/retry.py", line 184, in retry_target
+    return target()
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/_http.py", line 483, in api_request
+    raise exceptions.from_http_response(response)
+google.api_core.exceptions.Forbidden: 403 GET https://bigquery.googleapis.com/bigquery/v2/projects/airflow-project-352316/queries/airflow_1654536420035443_b083f7d64f25e11b435062157ab9c588?maxResults=0&location=US&prettyPrint=false: Quota exceeded: Your project exceeded quota for free query bytes scanned. For more information, see https://cloud.google.com/bigquery/docs/troubleshoot-quotas
+
+(job ID: airflow_1654536420035443_b083f7d64f25e11b435062157ab9c588)
+
+                           -----Query Job SQL Follows-----                           
+
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+   1:
+   2:    SELECT
+   3:      FORMAT_TIMESTAMP("%Y%m%d", timestamp) AS date,
+   4:      `by` AS user,
+   5:      id as story_id,
+   6:      REGEXP_EXTRACT(url, "(https?://github.com/[^/]*/[^/#?]*)") as github_repo,
+   7:      type,
+   8:      length(text) length,
+   9:      SUM(score) as score
+  10:    FROM
+  11:      `bigquery-public-data.hacker_news.full`
+  12:    WHERE TRUE
+  13:      AND FORMAT_TIMESTAMP("%Y%m%d", timestamp) = '20220501'
+  14:      AND url LIKE '%https://github.com%'
+  15:      AND url NOT LIKE '%github.com/blog/%'
+  16:    GROUP BY 1,2,3,4,5,6
+  17:    
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+[2022-06-06 17:27:00,984] {taskinstance.py:1503} INFO - Marking task as UP_FOR_RETRY. dag_id=gbq_pipeline, task_id=write_truncate_hackernews_agg, execution_date=20220501T100000, start_date=20220606T172659, end_date=20220606T172700
+[2022-06-06 17:27:01,010] {local_task_job.py:146} INFO - Task exited with return code 1
+[2022-06-06 17:30:40,131] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.write_truncate_hackernews_agg 2022-05-01T10:00:00+00:00 [queued]>
+[2022-06-06 17:30:40,142] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.write_truncate_hackernews_agg 2022-05-01T10:00:00+00:00 [queued]>
+[2022-06-06 17:30:40,142] {taskinstance.py:1042} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 17:30:40,142] {taskinstance.py:1043} INFO - Starting attempt 1 of 3
+[2022-06-06 17:30:40,142] {taskinstance.py:1044} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 17:30:40,153] {taskinstance.py:1063} INFO - Executing <Task(BigQueryOperator): write_truncate_hackernews_agg> on 2022-05-01T10:00:00+00:00
+[2022-06-06 17:30:40,157] {standard_task_runner.py:52} INFO - Started process 275 to run task
+[2022-06-06 17:30:40,160] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'gbq_pipeline', 'write_truncate_hackernews_agg', '2022-05-01T10:00:00+00:00', '--job-id', '724', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/gbq_pipeline.py', '--cfg-path', '/tmp/tmpnjl1s9_b', '--error-file', '/tmp/tmpehi5jlaw']
+[2022-06-06 17:30:40,162] {standard_task_runner.py:77} INFO - Job 724: Subtask write_truncate_hackernews_agg
+[2022-06-06 17:30:40,197] {logging_mixin.py:104} INFO - Running <TaskInstance: gbq_pipeline.write_truncate_hackernews_agg 2022-05-01T10:00:00+00:00 [running]> on host f3f1e04b5b71
+[2022-06-06 17:30:40,228] {taskinstance.py:1257} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=airflow@airflow.com
+AIRFLOW_CTX_DAG_OWNER=vanmai-airflow
+AIRFLOW_CTX_DAG_ID=gbq_pipeline
+AIRFLOW_CTX_TASK_ID=write_truncate_hackernews_agg
+AIRFLOW_CTX_EXECUTION_DATE=2022-05-01T10:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-05-01T10:00:00+00:00
+[2022-06-06 17:30:40,229] {bigquery.py:680} INFO - Executing: 
+    SELECT
+      FORMAT_TIMESTAMP("%Y%m%d", timestamp) AS date,
+      `by` AS user,
+      id as story_id,
+      REGEXP_EXTRACT(url, "(https?://github.com/[^/]*/[^/#?]*)") as github_repo,
+      type,
+      length(text) length,
+      SUM(score) as score
+    FROM
+      `bigquery-public-data.hacker_news.full`
+    WHERE TRUE
+      AND FORMAT_TIMESTAMP("%Y%m%d", timestamp) = '20220501'
+      AND url LIKE '%https://github.com%'
+      AND url NOT LIKE '%github.com/blog/%'
+    GROUP BY 1,2,3,4,5,6
+    
+[2022-06-06 17:30:40,238] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py:2052 DeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2022-06-06 17:30:40,246] {bigquery.py:1510} INFO - Inserting job airflow_1654536640246019_b083f7d64f25e11b435062157ab9c588
+[2022-06-06 17:30:41,364] {taskinstance.py:1455} ERROR - 403 GET https://bigquery.googleapis.com/bigquery/v2/projects/airflow-project-352316/queries/airflow_1654536640246019_b083f7d64f25e11b435062157ab9c588?maxResults=0&location=US&prettyPrint=false: Quota exceeded: Your project exceeded quota for free query bytes scanned. For more information, see https://cloud.google.com/bigquery/docs/troubleshoot-quotas
+
+(job ID: airflow_1654536640246019_b083f7d64f25e11b435062157ab9c588)
+
+                           -----Query Job SQL Follows-----                           
+
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+   1:
+   2:    SELECT
+   3:      FORMAT_TIMESTAMP("%Y%m%d", timestamp) AS date,
+   4:      `by` AS user,
+   5:      id as story_id,
+   6:      REGEXP_EXTRACT(url, "(https?://github.com/[^/]*/[^/#?]*)") as github_repo,
+   7:      type,
+   8:      length(text) length,
+   9:      SUM(score) as score
+  10:    FROM
+  11:      `bigquery-public-data.hacker_news.full`
+  12:    WHERE TRUE
+  13:      AND FORMAT_TIMESTAMP("%Y%m%d", timestamp) = '20220501'
+  14:      AND url LIKE '%https://github.com%'
+  15:      AND url NOT LIKE '%github.com/blog/%'
+  16:    GROUP BY 1,2,3,4,5,6
+  17:    
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1112, in _run_raw_task
+    self._prepare_and_execute_task_with_callbacks(context, task)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1285, in _prepare_and_execute_task_with_callbacks
+    result = self._execute_task(context, task_copy)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1315, in _execute_task
+    result = task_copy.execute(context=context)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/operators/bigquery.py", line 706, in execute
+    encryption_configuration=self.encryption_configuration,
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py", line 2186, in run_query
+    job = self.insert_job(configuration=configuration, project_id=self.project_id)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/common/hooks/base_google.py", line 425, in inner_wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py", line 1512, in insert_job
+    job.result()
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/query.py", line 1159, in result
+    super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/base.py", line 631, in result
+    return super(_AsyncJob, self).result(timeout=timeout, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/future/polling.py", line 129, in result
+    self._blocking_poll(timeout=timeout, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/query.py", line 1016, in _blocking_poll
+    super(QueryJob, self)._blocking_poll(timeout=timeout, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/future/polling.py", line 107, in _blocking_poll
+    retry_(self._done_or_raise)(**kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/retry.py", line 286, in retry_wrapped_func
+    on_error=on_error,
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/retry.py", line 184, in retry_target
+    return target()
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/future/polling.py", line 85, in _done_or_raise
+    if not self.done(**kwargs):
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/query.py", line 999, in done
+    self._reload_query_results(retry=retry, timeout=timeout)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/query.py", line 1111, in _reload_query_results
+    timeout=transport_timeout,
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/client.py", line 1617, in _get_query_results
+    timeout=timeout,
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/client.py", line 640, in _call_api
+    return call()
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/retry.py", line 286, in retry_wrapped_func
+    on_error=on_error,
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/retry.py", line 184, in retry_target
+    return target()
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/_http.py", line 483, in api_request
+    raise exceptions.from_http_response(response)
+google.api_core.exceptions.Forbidden: 403 GET https://bigquery.googleapis.com/bigquery/v2/projects/airflow-project-352316/queries/airflow_1654536640246019_b083f7d64f25e11b435062157ab9c588?maxResults=0&location=US&prettyPrint=false: Quota exceeded: Your project exceeded quota for free query bytes scanned. For more information, see https://cloud.google.com/bigquery/docs/troubleshoot-quotas
+
+(job ID: airflow_1654536640246019_b083f7d64f25e11b435062157ab9c588)
+
+                           -----Query Job SQL Follows-----                           
+
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+   1:
+   2:    SELECT
+   3:      FORMAT_TIMESTAMP("%Y%m%d", timestamp) AS date,
+   4:      `by` AS user,
+   5:      id as story_id,
+   6:      REGEXP_EXTRACT(url, "(https?://github.com/[^/]*/[^/#?]*)") as github_repo,
+   7:      type,
+   8:      length(text) length,
+   9:      SUM(score) as score
+  10:    FROM
+  11:      `bigquery-public-data.hacker_news.full`
+  12:    WHERE TRUE
+  13:      AND FORMAT_TIMESTAMP("%Y%m%d", timestamp) = '20220501'
+  14:      AND url LIKE '%https://github.com%'
+  15:      AND url NOT LIKE '%github.com/blog/%'
+  16:    GROUP BY 1,2,3,4,5,6
+  17:    
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+[2022-06-06 17:30:41,367] {taskinstance.py:1503} INFO - Marking task as UP_FOR_RETRY. dag_id=gbq_pipeline, task_id=write_truncate_hackernews_agg, execution_date=20220501T100000, start_date=20220606T173040, end_date=20220606T173041
+[2022-06-06 17:30:41,419] {local_task_job.py:146} INFO - Task exited with return code 1
+[2022-06-06 17:33:30,316] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.write_truncate_hackernews_agg 2022-05-01T10:00:00+00:00 [queued]>
+[2022-06-06 17:33:30,327] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.write_truncate_hackernews_agg 2022-05-01T10:00:00+00:00 [queued]>
+[2022-06-06 17:33:30,328] {taskinstance.py:1042} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 17:33:30,328] {taskinstance.py:1043} INFO - Starting attempt 1 of 3
+[2022-06-06 17:33:30,328] {taskinstance.py:1044} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 17:33:30,338] {taskinstance.py:1063} INFO - Executing <Task(BigQueryOperator): write_truncate_hackernews_agg> on 2022-05-01T10:00:00+00:00
+[2022-06-06 17:33:30,341] {standard_task_runner.py:52} INFO - Started process 292 to run task
+[2022-06-06 17:33:30,344] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'gbq_pipeline', 'write_truncate_hackernews_agg', '2022-05-01T10:00:00+00:00', '--job-id', '731', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/gbq_pipeline.py', '--cfg-path', '/tmp/tmpgncayspk', '--error-file', '/tmp/tmpy7owlsrn']
+[2022-06-06 17:33:30,346] {standard_task_runner.py:77} INFO - Job 731: Subtask write_truncate_hackernews_agg
+[2022-06-06 17:33:30,380] {logging_mixin.py:104} INFO - Running <TaskInstance: gbq_pipeline.write_truncate_hackernews_agg 2022-05-01T10:00:00+00:00 [running]> on host f3f1e04b5b71
+[2022-06-06 17:33:30,409] {taskinstance.py:1257} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=airflow@airflow.com
+AIRFLOW_CTX_DAG_OWNER=vanmai-airflow
+AIRFLOW_CTX_DAG_ID=gbq_pipeline
+AIRFLOW_CTX_TASK_ID=write_truncate_hackernews_agg
+AIRFLOW_CTX_EXECUTION_DATE=2022-05-01T10:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-05-01T10:00:00+00:00
+[2022-06-06 17:33:30,411] {bigquery.py:680} INFO - Executing: 
+    SELECT
+      FORMAT_TIMESTAMP("%Y%m%d", timestamp) AS date,
+      `by` AS user,
+      id as story_id,
+      REGEXP_EXTRACT(url, "(https?://github.com/[^/]*/[^/#?]*)") as github_repo,
+      type,
+      length(text) length,
+      SUM(score) as score
+    FROM
+      `bigquery-public-data.hacker_news.full`
+    WHERE TRUE
+      AND FORMAT_TIMESTAMP("%Y%m%d", timestamp) = '20220501'
+      AND url LIKE '%https://github.com%'
+      AND url NOT LIKE '%github.com/blog/%'
+    GROUP BY 1,2,3,4,5,6
+    
+[2022-06-06 17:33:30,418] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py:2052 DeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2022-06-06 17:33:30,426] {bigquery.py:1510} INFO - Inserting job airflow_1654536810425584_b083f7d64f25e11b435062157ab9c588
+[2022-06-06 17:33:31,319] {taskinstance.py:1455} ERROR - 403 GET https://bigquery.googleapis.com/bigquery/v2/projects/airflow-project-352316/queries/airflow_1654536810425584_b083f7d64f25e11b435062157ab9c588?maxResults=0&location=US&prettyPrint=false: Quota exceeded: Your project exceeded quota for free query bytes scanned. For more information, see https://cloud.google.com/bigquery/docs/troubleshoot-quotas
+
+(job ID: airflow_1654536810425584_b083f7d64f25e11b435062157ab9c588)
+
+                           -----Query Job SQL Follows-----                           
+
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+   1:
+   2:    SELECT
+   3:      FORMAT_TIMESTAMP("%Y%m%d", timestamp) AS date,
+   4:      `by` AS user,
+   5:      id as story_id,
+   6:      REGEXP_EXTRACT(url, "(https?://github.com/[^/]*/[^/#?]*)") as github_repo,
+   7:      type,
+   8:      length(text) length,
+   9:      SUM(score) as score
+  10:    FROM
+  11:      `bigquery-public-data.hacker_news.full`
+  12:    WHERE TRUE
+  13:      AND FORMAT_TIMESTAMP("%Y%m%d", timestamp) = '20220501'
+  14:      AND url LIKE '%https://github.com%'
+  15:      AND url NOT LIKE '%github.com/blog/%'
+  16:    GROUP BY 1,2,3,4,5,6
+  17:    
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1112, in _run_raw_task
+    self._prepare_and_execute_task_with_callbacks(context, task)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1285, in _prepare_and_execute_task_with_callbacks
+    result = self._execute_task(context, task_copy)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1315, in _execute_task
+    result = task_copy.execute(context=context)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/operators/bigquery.py", line 706, in execute
+    encryption_configuration=self.encryption_configuration,
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py", line 2186, in run_query
+    job = self.insert_job(configuration=configuration, project_id=self.project_id)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/common/hooks/base_google.py", line 425, in inner_wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py", line 1512, in insert_job
+    job.result()
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/query.py", line 1159, in result
+    super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/base.py", line 631, in result
+    return super(_AsyncJob, self).result(timeout=timeout, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/future/polling.py", line 129, in result
+    self._blocking_poll(timeout=timeout, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/query.py", line 1016, in _blocking_poll
+    super(QueryJob, self)._blocking_poll(timeout=timeout, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/future/polling.py", line 107, in _blocking_poll
+    retry_(self._done_or_raise)(**kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/retry.py", line 286, in retry_wrapped_func
+    on_error=on_error,
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/retry.py", line 184, in retry_target
+    return target()
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/future/polling.py", line 85, in _done_or_raise
+    if not self.done(**kwargs):
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/query.py", line 999, in done
+    self._reload_query_results(retry=retry, timeout=timeout)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/query.py", line 1111, in _reload_query_results
+    timeout=transport_timeout,
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/client.py", line 1617, in _get_query_results
+    timeout=timeout,
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/client.py", line 640, in _call_api
+    return call()
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/retry.py", line 286, in retry_wrapped_func
+    on_error=on_error,
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/retry.py", line 184, in retry_target
+    return target()
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/_http.py", line 483, in api_request
+    raise exceptions.from_http_response(response)
+google.api_core.exceptions.Forbidden: 403 GET https://bigquery.googleapis.com/bigquery/v2/projects/airflow-project-352316/queries/airflow_1654536810425584_b083f7d64f25e11b435062157ab9c588?maxResults=0&location=US&prettyPrint=false: Quota exceeded: Your project exceeded quota for free query bytes scanned. For more information, see https://cloud.google.com/bigquery/docs/troubleshoot-quotas
+
+(job ID: airflow_1654536810425584_b083f7d64f25e11b435062157ab9c588)
+
+                           -----Query Job SQL Follows-----                           
+
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+   1:
+   2:    SELECT
+   3:      FORMAT_TIMESTAMP("%Y%m%d", timestamp) AS date,
+   4:      `by` AS user,
+   5:      id as story_id,
+   6:      REGEXP_EXTRACT(url, "(https?://github.com/[^/]*/[^/#?]*)") as github_repo,
+   7:      type,
+   8:      length(text) length,
+   9:      SUM(score) as score
+  10:    FROM
+  11:      `bigquery-public-data.hacker_news.full`
+  12:    WHERE TRUE
+  13:      AND FORMAT_TIMESTAMP("%Y%m%d", timestamp) = '20220501'
+  14:      AND url LIKE '%https://github.com%'
+  15:      AND url NOT LIKE '%github.com/blog/%'
+  16:    GROUP BY 1,2,3,4,5,6
+  17:    
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+[2022-06-06 17:33:31,322] {taskinstance.py:1503} INFO - Marking task as UP_FOR_RETRY. dag_id=gbq_pipeline, task_id=write_truncate_hackernews_agg, execution_date=20220501T100000, start_date=20220606T173330, end_date=20220606T173331
+[2022-06-06 17:33:31,363] {local_task_job.py:146} INFO - Task exited with return code 1
+[2022-06-06 17:40:34,768] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.write_truncate_hackernews_agg 2022-05-01T10:00:00+00:00 [queued]>
+[2022-06-06 17:40:34,776] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.write_truncate_hackernews_agg 2022-05-01T10:00:00+00:00 [queued]>
+[2022-06-06 17:40:34,777] {taskinstance.py:1042} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 17:40:34,777] {taskinstance.py:1043} INFO - Starting attempt 1 of 3
+[2022-06-06 17:40:34,777] {taskinstance.py:1044} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 17:40:34,787] {taskinstance.py:1063} INFO - Executing <Task(BigQueryOperator): write_truncate_hackernews_agg> on 2022-05-01T10:00:00+00:00
+[2022-06-06 17:40:34,790] {standard_task_runner.py:52} INFO - Started process 309 to run task
+[2022-06-06 17:40:34,793] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'gbq_pipeline', 'write_truncate_hackernews_agg', '2022-05-01T10:00:00+00:00', '--job-id', '736', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/gbq_pipeline.py', '--cfg-path', '/tmp/tmpc8t26p1c', '--error-file', '/tmp/tmpg669thyh']
+[2022-06-06 17:40:34,795] {standard_task_runner.py:77} INFO - Job 736: Subtask write_truncate_hackernews_agg
+[2022-06-06 17:40:34,826] {logging_mixin.py:104} INFO - Running <TaskInstance: gbq_pipeline.write_truncate_hackernews_agg 2022-05-01T10:00:00+00:00 [running]> on host f3f1e04b5b71
+[2022-06-06 17:40:34,855] {taskinstance.py:1257} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=airflow@airflow.com
+AIRFLOW_CTX_DAG_OWNER=vanmai-airflow
+AIRFLOW_CTX_DAG_ID=gbq_pipeline
+AIRFLOW_CTX_TASK_ID=write_truncate_hackernews_agg
+AIRFLOW_CTX_EXECUTION_DATE=2022-05-01T10:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-05-01T10:00:00+00:00
+[2022-06-06 17:40:34,857] {bigquery.py:680} INFO - Executing: 
+    SELECT
+      FORMAT_TIMESTAMP("%Y%m%d", timestamp) AS date,
+      `by` AS user,
+      id as story_id,
+      REGEXP_EXTRACT(url, "(https?://github.com/[^/]*/[^/#?]*)") as github_repo,
+      type,
+      length(text) length,
+      SUM(score) as score
+    FROM
+      `bigquery-public-data.hacker_news.full`
+    WHERE TRUE
+      AND FORMAT_TIMESTAMP("%Y%m%d", timestamp) = '20220501'
+      AND url LIKE '%https://github.com%'
+      AND url NOT LIKE '%github.com/blog/%'
+    GROUP BY 1,2,3,4,5,6
+    
+[2022-06-06 17:40:34,865] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py:2052 DeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2022-06-06 17:40:34,871] {bigquery.py:1510} INFO - Inserting job airflow_1654537234871038_b083f7d64f25e11b435062157ab9c588
+[2022-06-06 17:40:35,775] {taskinstance.py:1455} ERROR - 403 GET https://bigquery.googleapis.com/bigquery/v2/projects/airflow-project-352316/queries/airflow_1654537234871038_b083f7d64f25e11b435062157ab9c588?maxResults=0&location=US&prettyPrint=false: Quota exceeded: Your project exceeded quota for free query bytes scanned. For more information, see https://cloud.google.com/bigquery/docs/troubleshoot-quotas
+
+(job ID: airflow_1654537234871038_b083f7d64f25e11b435062157ab9c588)
+
+                           -----Query Job SQL Follows-----                           
+
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+   1:
+   2:    SELECT
+   3:      FORMAT_TIMESTAMP("%Y%m%d", timestamp) AS date,
+   4:      `by` AS user,
+   5:      id as story_id,
+   6:      REGEXP_EXTRACT(url, "(https?://github.com/[^/]*/[^/#?]*)") as github_repo,
+   7:      type,
+   8:      length(text) length,
+   9:      SUM(score) as score
+  10:    FROM
+  11:      `bigquery-public-data.hacker_news.full`
+  12:    WHERE TRUE
+  13:      AND FORMAT_TIMESTAMP("%Y%m%d", timestamp) = '20220501'
+  14:      AND url LIKE '%https://github.com%'
+  15:      AND url NOT LIKE '%github.com/blog/%'
+  16:    GROUP BY 1,2,3,4,5,6
+  17:    
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1112, in _run_raw_task
+    self._prepare_and_execute_task_with_callbacks(context, task)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1285, in _prepare_and_execute_task_with_callbacks
+    result = self._execute_task(context, task_copy)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1315, in _execute_task
+    result = task_copy.execute(context=context)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/operators/bigquery.py", line 706, in execute
+    encryption_configuration=self.encryption_configuration,
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py", line 2186, in run_query
+    job = self.insert_job(configuration=configuration, project_id=self.project_id)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/common/hooks/base_google.py", line 425, in inner_wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py", line 1512, in insert_job
+    job.result()
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/query.py", line 1159, in result
+    super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/base.py", line 631, in result
+    return super(_AsyncJob, self).result(timeout=timeout, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/future/polling.py", line 129, in result
+    self._blocking_poll(timeout=timeout, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/query.py", line 1016, in _blocking_poll
+    super(QueryJob, self)._blocking_poll(timeout=timeout, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/future/polling.py", line 107, in _blocking_poll
+    retry_(self._done_or_raise)(**kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/retry.py", line 286, in retry_wrapped_func
+    on_error=on_error,
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/retry.py", line 184, in retry_target
+    return target()
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/future/polling.py", line 85, in _done_or_raise
+    if not self.done(**kwargs):
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/query.py", line 999, in done
+    self._reload_query_results(retry=retry, timeout=timeout)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/query.py", line 1111, in _reload_query_results
+    timeout=transport_timeout,
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/client.py", line 1617, in _get_query_results
+    timeout=timeout,
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/client.py", line 640, in _call_api
+    return call()
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/retry.py", line 286, in retry_wrapped_func
+    on_error=on_error,
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/retry.py", line 184, in retry_target
+    return target()
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/_http.py", line 483, in api_request
+    raise exceptions.from_http_response(response)
+google.api_core.exceptions.Forbidden: 403 GET https://bigquery.googleapis.com/bigquery/v2/projects/airflow-project-352316/queries/airflow_1654537234871038_b083f7d64f25e11b435062157ab9c588?maxResults=0&location=US&prettyPrint=false: Quota exceeded: Your project exceeded quota for free query bytes scanned. For more information, see https://cloud.google.com/bigquery/docs/troubleshoot-quotas
+
+(job ID: airflow_1654537234871038_b083f7d64f25e11b435062157ab9c588)
+
+                           -----Query Job SQL Follows-----                           
+
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+   1:
+   2:    SELECT
+   3:      FORMAT_TIMESTAMP("%Y%m%d", timestamp) AS date,
+   4:      `by` AS user,
+   5:      id as story_id,
+   6:      REGEXP_EXTRACT(url, "(https?://github.com/[^/]*/[^/#?]*)") as github_repo,
+   7:      type,
+   8:      length(text) length,
+   9:      SUM(score) as score
+  10:    FROM
+  11:      `bigquery-public-data.hacker_news.full`
+  12:    WHERE TRUE
+  13:      AND FORMAT_TIMESTAMP("%Y%m%d", timestamp) = '20220501'
+  14:      AND url LIKE '%https://github.com%'
+  15:      AND url NOT LIKE '%github.com/blog/%'
+  16:    GROUP BY 1,2,3,4,5,6
+  17:    
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+[2022-06-06 17:40:35,779] {taskinstance.py:1503} INFO - Marking task as UP_FOR_RETRY. dag_id=gbq_pipeline, task_id=write_truncate_hackernews_agg, execution_date=20220501T100000, start_date=20220606T174034, end_date=20220606T174035
+[2022-06-06 17:40:35,811] {local_task_job.py:146} INFO - Task exited with return code 1

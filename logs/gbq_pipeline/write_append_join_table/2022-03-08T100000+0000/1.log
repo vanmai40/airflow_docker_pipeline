@@ -1,0 +1,70 @@
+[2022-06-06 15:24:29,425] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.write_append_join_table 2022-03-08T10:00:00+00:00 [queued]>
+[2022-06-06 15:24:29,446] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.write_append_join_table 2022-03-08T10:00:00+00:00 [queued]>
+[2022-06-06 15:24:29,446] {taskinstance.py:1042} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 15:24:29,447] {taskinstance.py:1043} INFO - Starting attempt 1 of 3
+[2022-06-06 15:24:29,447] {taskinstance.py:1044} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 15:24:29,456] {taskinstance.py:1063} INFO - Executing <Task(BigQueryOperator): write_append_join_table> on 2022-03-08T10:00:00+00:00
+[2022-06-06 15:24:29,460] {standard_task_runner.py:52} INFO - Started process 342 to run task
+[2022-06-06 15:24:29,462] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'gbq_pipeline', 'write_append_join_table', '2022-03-08T10:00:00+00:00', '--job-id', '413', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/gbq_pipeline.py', '--cfg-path', '/tmp/tmpvqdm5fm6', '--error-file', '/tmp/tmpnir860kf']
+[2022-06-06 15:24:29,464] {standard_task_runner.py:77} INFO - Job 413: Subtask write_append_join_table
+[2022-06-06 15:24:29,500] {logging_mixin.py:104} INFO - Running <TaskInstance: gbq_pipeline.write_append_join_table 2022-03-08T10:00:00+00:00 [running]> on host c40819a450e3
+[2022-06-06 15:24:29,532] {taskinstance.py:1257} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=airflow@airflow.com
+AIRFLOW_CTX_DAG_OWNER=vanmai-airflow
+AIRFLOW_CTX_DAG_ID=gbq_pipeline
+AIRFLOW_CTX_TASK_ID=write_append_join_table
+AIRFLOW_CTX_EXECUTION_DATE=2022-03-08T10:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-03-08T10:00:00+00:00
+[2022-06-06 15:24:29,534] {bigquery.py:680} INFO - Executing: 
+    SELECT 
+      gh.*,
+      hn.* except (date, github_repo)
+    FROM
+      `airflow-project-352316.github_curated.github_agg` gh
+    LEFT JOIN 
+      `airflow-project-352316.github_curated.hackernews_agg` hn
+    ON hn.github_repo = gh.github_repo and hn.date = gh.date
+    WHERE hn.score is not null
+    
+[2022-06-06 15:24:29,542] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py:2052 DeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2022-06-06 15:24:29,549] {bigquery.py:1510} INFO - Inserting job airflow_1654529069548864_cfad98687eff6246d49f73f415b9556f
+[2022-06-06 15:24:32,940] {taskinstance.py:1166} INFO - Marking task as SUCCESS. dag_id=gbq_pipeline, task_id=write_append_join_table, execution_date=20220308T100000, start_date=20220606T152429, end_date=20220606T152432
+[2022-06-06 15:24:32,963] {taskinstance.py:1220} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2022-06-06 15:24:32,974] {local_task_job.py:146} INFO - Task exited with return code 0
+[2022-06-06 17:00:06,382] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.write_append_join_table 2022-03-08T10:00:00+00:00 [queued]>
+[2022-06-06 17:00:06,391] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.write_append_join_table 2022-03-08T10:00:00+00:00 [queued]>
+[2022-06-06 17:00:06,392] {taskinstance.py:1042} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 17:00:06,392] {taskinstance.py:1043} INFO - Starting attempt 1 of 3
+[2022-06-06 17:00:06,392] {taskinstance.py:1044} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 17:00:06,403] {taskinstance.py:1063} INFO - Executing <Task(BigQueryOperator): write_append_join_table> on 2022-03-08T10:00:00+00:00
+[2022-06-06 17:00:06,410] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'gbq_pipeline', 'write_append_join_table', '2022-03-08T10:00:00+00:00', '--job-id', '562', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/gbq_pipeline.py', '--cfg-path', '/tmp/tmphp5ovcqe', '--error-file', '/tmp/tmpsnjpglsn']
+[2022-06-06 17:00:06,407] {standard_task_runner.py:52} INFO - Started process 792 to run task
+[2022-06-06 17:00:06,412] {standard_task_runner.py:77} INFO - Job 562: Subtask write_append_join_table
+[2022-06-06 17:00:06,446] {logging_mixin.py:104} INFO - Running <TaskInstance: gbq_pipeline.write_append_join_table 2022-03-08T10:00:00+00:00 [running]> on host c40819a450e3
+[2022-06-06 17:00:06,477] {taskinstance.py:1257} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=airflow@airflow.com
+AIRFLOW_CTX_DAG_OWNER=vanmai-airflow
+AIRFLOW_CTX_DAG_ID=gbq_pipeline
+AIRFLOW_CTX_TASK_ID=write_append_join_table
+AIRFLOW_CTX_EXECUTION_DATE=2022-03-08T10:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-03-08T10:00:00+00:00
+[2022-06-06 17:00:06,478] {bigquery.py:680} INFO - Executing: 
+    SELECT 
+      gh.*,
+      hn.* except (date, github_repo)
+    FROM
+      `airflow-project-352316.github_curated.github_agg` gh
+    LEFT JOIN 
+      `airflow-project-352316.github_curated.hackernews_agg` hn
+    ON hn.github_repo = gh.github_repo and hn.date = gh.date
+    WHERE hn.score is not null
+    
+[2022-06-06 17:00:06,486] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py:2052 DeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2022-06-06 17:00:06,492] {bigquery.py:1510} INFO - Inserting job airflow_1654534806492336_cfad98687eff6246d49f73f415b9556f
+[2022-06-06 17:00:11,269] {taskinstance.py:1166} INFO - Marking task as SUCCESS. dag_id=gbq_pipeline, task_id=write_append_join_table, execution_date=20220308T100000, start_date=20220606T170006, end_date=20220606T170011
+[2022-06-06 17:00:11,299] {taskinstance.py:1220} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2022-06-06 17:00:11,325] {local_task_job.py:146} INFO - Task exited with return code 0

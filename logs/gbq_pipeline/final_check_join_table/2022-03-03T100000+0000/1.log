@@ -1,0 +1,63 @@
+[2022-06-06 17:00:13,581] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.final_check_join_table 2022-03-03T10:00:00+00:00 [queued]>
+[2022-06-06 17:00:13,593] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.final_check_join_table 2022-03-03T10:00:00+00:00 [queued]>
+[2022-06-06 17:00:13,594] {taskinstance.py:1042} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 17:00:13,594] {taskinstance.py:1043} INFO - Starting attempt 1 of 3
+[2022-06-06 17:00:13,594] {taskinstance.py:1044} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 17:00:13,606] {taskinstance.py:1063} INFO - Executing <Task(BigQueryCheckOperator): final_check_join_table> on 2022-03-03T10:00:00+00:00
+[2022-06-06 17:00:13,611] {standard_task_runner.py:52} INFO - Started process 821 to run task
+[2022-06-06 17:00:13,614] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'gbq_pipeline', 'final_check_join_table', '2022-03-03T10:00:00+00:00', '--job-id', '572', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/gbq_pipeline.py', '--cfg-path', '/tmp/tmp5ygz6695', '--error-file', '/tmp/tmp5e7q2d2a']
+[2022-06-06 17:00:13,617] {standard_task_runner.py:77} INFO - Job 572: Subtask final_check_join_table
+[2022-06-06 17:00:13,660] {logging_mixin.py:104} INFO - Running <TaskInstance: gbq_pipeline.final_check_join_table 2022-03-03T10:00:00+00:00 [running]> on host c40819a450e3
+[2022-06-06 17:00:13,703] {taskinstance.py:1257} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=airflow@airflow.com
+AIRFLOW_CTX_DAG_OWNER=vanmai-airflow
+AIRFLOW_CTX_DAG_ID=gbq_pipeline
+AIRFLOW_CTX_TASK_ID=final_check_join_table
+AIRFLOW_CTX_EXECUTION_DATE=2022-03-03T10:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-03-03T10:00:00+00:00
+[2022-06-06 17:00:13,704] {sql.py:87} INFO - Executing SQL check: 
+    SELECT "20220303" =
+        (
+        SELECT max(date)
+        FROM `airflow-project-352316.github_curated.github_hackernews_join`
+        )
+    
+[2022-06-06 17:00:13,715] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py:120 DeprecationWarning: This method will be deprecated. Please use `BigQueryHook.get_client` method
+[2022-06-06 17:00:14,276] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py:2052 DeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2022-06-06 17:00:14,278] {bigquery.py:1510} INFO - Inserting job airflow_1654534814277377_ac324cddf800688c3670c1eba8da6309
+[2022-06-06 17:00:16,062] {sql.py:90} INFO - Record: [False]
+[2022-06-06 17:00:16,070] {taskinstance.py:1455} ERROR - Test failed.
+Query:
+
+    SELECT "20220303" =
+        (
+        SELECT max(date)
+        FROM `airflow-project-352316.github_curated.github_hackernews_join`
+        )
+    
+Results:
+[False]
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1112, in _run_raw_task
+    self._prepare_and_execute_task_with_callbacks(context, task)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1285, in _prepare_and_execute_task_with_callbacks
+    result = self._execute_task(context, task_copy)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1315, in _execute_task
+    result = task_copy.execute(context=context)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/operators/sql.py", line 94, in execute
+    raise AirflowException(f"Test failed.\nQuery:\n{self.sql}\nResults:\n{records!s}")
+airflow.exceptions.AirflowException: Test failed.
+Query:
+
+    SELECT "20220303" =
+        (
+        SELECT max(date)
+        FROM `airflow-project-352316.github_curated.github_hackernews_join`
+        )
+    
+Results:
+[False]
+[2022-06-06 17:00:16,071] {taskinstance.py:1503} INFO - Marking task as UP_FOR_RETRY. dag_id=gbq_pipeline, task_id=final_check_join_table, execution_date=20220303T100000, start_date=20220606T170013, end_date=20220606T170016
+[2022-06-06 17:00:16,117] {local_task_job.py:146} INFO - Task exited with return code 1
