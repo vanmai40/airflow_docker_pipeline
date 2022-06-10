@@ -1,0 +1,106 @@
+[2022-06-06 10:52:32,464] {scheduler_job.py:182} INFO - Started process (PID=33) to work on /opt/airflow/dags/bigquery_pipeline.py
+[2022-06-06 10:52:32,466] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/bigquery_pipeline.py for tasks to queue
+[2022-06-06 10:52:32,466] {logging_mixin.py:104} INFO - [2022-06-06 10:52:32,466] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/bigquery_pipeline.py
+[2022-06-06 10:52:34,066] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/operators/bigquery.py:37 DeprecationWarning: This module is deprecated. Please use `airflow.operators.sql`.
+[2022-06-06 10:52:34,229] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/utils/decorators.py:94 DeprecationWarning: This class is deprecated.
+            Please use `airflow.operators.sql.SQLCheckOperator`.
+[2022-06-06 10:52:34,230] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/models/baseoperator.py:89 DeprecationWarning: The bigquery_conn_id parameter has been deprecated. You should pass the gcp_conn_id parameter.
+[2022-06-06 10:52:34,232] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/operators/bigquery.py:645 DeprecationWarning: The bigquery_conn_id parameter has been deprecated. You should pass the gcp_conn_id parameter.
+[2022-06-06 10:52:34,233] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/operators/bigquery.py:651 DeprecationWarning: This operator is deprecated. Please use `BigQueryInsertJobOperator`.
+[2022-06-06 10:52:34,240] {scheduler_job.py:639} INFO - DAG(s) dict_keys(['gbq_pipeline']) retrieved from /opt/airflow/dags/bigquery_pipeline.py
+[2022-06-06 10:52:34,256] {logging_mixin.py:104} INFO - [2022-06-06 10:52:34,256] {dag.py:1818} INFO - Sync 1 DAGs
+[2022-06-06 10:52:34,267] {logging_mixin.py:104} INFO - [2022-06-06 10:52:34,267] {dag.py:2273} INFO - Setting next_dagrun for gbq_pipeline to 2022-06-01 10:00:00+00:00
+[2022-06-06 10:52:34,275] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/bigquery_pipeline.py took 1.813 seconds
+[2022-06-06 10:53:04,627] {scheduler_job.py:182} INFO - Started process (PID=50) to work on /opt/airflow/dags/bigquery_pipeline.py
+[2022-06-06 10:53:04,628] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/bigquery_pipeline.py for tasks to queue
+[2022-06-06 10:53:04,629] {logging_mixin.py:104} INFO - [2022-06-06 10:53:04,629] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/bigquery_pipeline.py
+[2022-06-06 10:53:05,120] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/operators/bigquery.py:37 DeprecationWarning: This module is deprecated. Please use `airflow.operators.sql`.
+[2022-06-06 10:53:05,161] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/utils/decorators.py:94 DeprecationWarning: This class is deprecated.
+            Please use `airflow.operators.sql.SQLCheckOperator`.
+[2022-06-06 10:53:05,162] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/models/baseoperator.py:89 DeprecationWarning: The bigquery_conn_id parameter has been deprecated. You should pass the gcp_conn_id parameter.
+[2022-06-06 10:53:05,163] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/operators/bigquery.py:645 DeprecationWarning: The bigquery_conn_id parameter has been deprecated. You should pass the gcp_conn_id parameter.
+[2022-06-06 10:53:05,164] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/operators/bigquery.py:651 DeprecationWarning: This operator is deprecated. Please use `BigQueryInsertJobOperator`.
+[2022-06-06 10:53:05,170] {scheduler_job.py:639} INFO - DAG(s) dict_keys(['gbq_pipeline']) retrieved from /opt/airflow/dags/bigquery_pipeline.py
+[2022-06-06 10:53:05,184] {logging_mixin.py:104} INFO - [2022-06-06 10:53:05,183] {dag.py:1818} INFO - Sync 1 DAGs
+[2022-06-06 10:53:05,195] {logging_mixin.py:104} INFO - [2022-06-06 10:53:05,195] {dag.py:2273} INFO - Setting next_dagrun for gbq_pipeline to 2022-06-01 10:00:00+00:00
+[2022-06-06 10:53:05,205] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/bigquery_pipeline.py took 0.581 seconds
+[2022-06-06 10:53:35,766] {scheduler_job.py:182} INFO - Started process (PID=55) to work on /opt/airflow/dags/bigquery_pipeline.py
+[2022-06-06 10:53:35,766] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/bigquery_pipeline.py for tasks to queue
+[2022-06-06 10:53:35,767] {logging_mixin.py:104} INFO - [2022-06-06 10:53:35,767] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/bigquery_pipeline.py
+[2022-06-06 10:53:36,277] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/operators/bigquery.py:37 DeprecationWarning: This module is deprecated. Please use `airflow.operators.sql`.
+[2022-06-06 10:53:36,316] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/utils/decorators.py:94 DeprecationWarning: This class is deprecated.
+            Please use `airflow.operators.sql.SQLCheckOperator`.
+[2022-06-06 10:53:36,318] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/models/baseoperator.py:89 DeprecationWarning: The bigquery_conn_id parameter has been deprecated. You should pass the gcp_conn_id parameter.
+[2022-06-06 10:53:36,319] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/operators/bigquery.py:645 DeprecationWarning: The bigquery_conn_id parameter has been deprecated. You should pass the gcp_conn_id parameter.
+[2022-06-06 10:53:36,320] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/operators/bigquery.py:651 DeprecationWarning: This operator is deprecated. Please use `BigQueryInsertJobOperator`.
+[2022-06-06 10:53:36,324] {scheduler_job.py:639} INFO - DAG(s) dict_keys(['gbq_pipeline']) retrieved from /opt/airflow/dags/bigquery_pipeline.py
+[2022-06-06 10:53:36,338] {logging_mixin.py:104} INFO - [2022-06-06 10:53:36,338] {dag.py:1818} INFO - Sync 1 DAGs
+[2022-06-06 10:53:36,350] {logging_mixin.py:104} INFO - [2022-06-06 10:53:36,350] {dag.py:2273} INFO - Setting next_dagrun for gbq_pipeline to 2022-06-01 10:00:00+00:00
+[2022-06-06 10:53:36,352] {scheduler_job.py:193} ERROR - Got an exception! Propagating...
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/jobs/scheduler_job.py", line 187, in _run_file_processor
+    callback_requests=callback_requests,
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/utils/session.py", line 65, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/jobs/scheduler_job.py", line 648, in process_file
+    dagbag.sync_to_db()
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/utils/session.py", line 65, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/dagbag.py", line 552, in sync_to_db
+    for attempt in run_with_db_retries(logger=self.log):
+  File "/home/airflow/.local/lib/python3.6/site-packages/tenacity/__init__.py", line 390, in __iter__
+    do = self.iter(retry_state=retry_state)
+  File "/home/airflow/.local/lib/python3.6/site-packages/tenacity/__init__.py", line 356, in iter
+    return fut.result()
+  File "/usr/local/lib/python3.6/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/local/lib/python3.6/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/dagbag.py", line 566, in sync_to_db
+    DAG.bulk_write_to_db(self.dags.values(), session=session)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/utils/session.py", line 62, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/dag.py", line 1904, in bulk_write_to_db
+    DagCode.bulk_sync_to_db([dag.fileloc for dag in orm_dags])
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/utils/session.py", line 65, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/dagcode.py", line 116, in bulk_sync_to_db
+    os.path.getmtime(correct_maybe_zipped(fileloc)), tz=timezone.utc
+  File "/usr/local/lib/python3.6/genericpath.py", line 55, in getmtime
+    return os.stat(filename).st_mtime
+FileNotFoundError: [Errno 2] No such file or directory: '/opt/airflow/dags/bigquery_pipeline.py'
+[2022-06-06 10:54:06,975] {scheduler_job.py:182} INFO - Started process (PID=60) to work on /opt/airflow/dags/bigquery_pipeline.py
+[2022-06-06 10:54:06,976] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/bigquery_pipeline.py for tasks to queue
+[2022-06-06 10:54:06,977] {logging_mixin.py:104} INFO - [2022-06-06 10:54:06,976] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/bigquery_pipeline.py
+[2022-06-06 10:54:06,977] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/bigquery_pipeline.py
+[2022-06-06 10:54:06,978] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/bigquery_pipeline.py took 0.005 seconds
+[2022-06-06 10:54:37,118] {scheduler_job.py:182} INFO - Started process (PID=64) to work on /opt/airflow/dags/bigquery_pipeline.py
+[2022-06-06 10:54:37,119] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/bigquery_pipeline.py for tasks to queue
+[2022-06-06 10:54:37,120] {logging_mixin.py:104} INFO - [2022-06-06 10:54:37,120] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/bigquery_pipeline.py
+[2022-06-06 10:54:37,121] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/bigquery_pipeline.py
+[2022-06-06 10:54:37,121] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/bigquery_pipeline.py took 0.005 seconds
+[2022-06-06 10:55:07,260] {scheduler_job.py:182} INFO - Started process (PID=68) to work on /opt/airflow/dags/bigquery_pipeline.py
+[2022-06-06 10:55:07,261] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/bigquery_pipeline.py for tasks to queue
+[2022-06-06 10:55:07,262] {logging_mixin.py:104} INFO - [2022-06-06 10:55:07,262] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/bigquery_pipeline.py
+[2022-06-06 10:55:07,263] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/bigquery_pipeline.py
+[2022-06-06 10:55:07,263] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/bigquery_pipeline.py took 0.006 seconds
+[2022-06-06 10:55:37,412] {scheduler_job.py:182} INFO - Started process (PID=72) to work on /opt/airflow/dags/bigquery_pipeline.py
+[2022-06-06 10:55:37,413] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/bigquery_pipeline.py for tasks to queue
+[2022-06-06 10:55:37,414] {logging_mixin.py:104} INFO - [2022-06-06 10:55:37,414] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/bigquery_pipeline.py
+[2022-06-06 10:55:37,414] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/bigquery_pipeline.py
+[2022-06-06 10:55:37,415] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/bigquery_pipeline.py took 0.006 seconds
+[2022-06-06 10:56:07,563] {scheduler_job.py:182} INFO - Started process (PID=76) to work on /opt/airflow/dags/bigquery_pipeline.py
+[2022-06-06 10:56:07,564] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/bigquery_pipeline.py for tasks to queue
+[2022-06-06 10:56:07,565] {logging_mixin.py:104} INFO - [2022-06-06 10:56:07,565] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/bigquery_pipeline.py
+[2022-06-06 10:56:07,566] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/bigquery_pipeline.py
+[2022-06-06 10:56:07,566] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/bigquery_pipeline.py took 0.006 seconds
+[2022-06-06 10:56:37,707] {scheduler_job.py:182} INFO - Started process (PID=80) to work on /opt/airflow/dags/bigquery_pipeline.py
+[2022-06-06 10:56:37,708] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/bigquery_pipeline.py for tasks to queue
+[2022-06-06 10:56:37,709] {logging_mixin.py:104} INFO - [2022-06-06 10:56:37,709] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/bigquery_pipeline.py
+[2022-06-06 10:56:37,709] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/bigquery_pipeline.py
+[2022-06-06 10:56:37,710] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/bigquery_pipeline.py took 0.005 seconds
+[2022-06-06 10:57:07,870] {scheduler_job.py:182} INFO - Started process (PID=84) to work on /opt/airflow/dags/bigquery_pipeline.py
+[2022-06-06 10:57:07,871] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/bigquery_pipeline.py for tasks to queue
+[2022-06-06 10:57:07,872] {logging_mixin.py:104} INFO - [2022-06-06 10:57:07,872] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/bigquery_pipeline.py
+[2022-06-06 10:57:07,872] {scheduler_job.py:641} WARNING - No viable dags retrieved from /opt/airflow/dags/bigquery_pipeline.py
+[2022-06-06 10:57:07,873] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/bigquery_pipeline.py took 0.005 seconds

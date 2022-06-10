@@ -1,0 +1,168 @@
+[2022-06-10 22:00:40,536] {scheduler_job.py:182} INFO - Started process (PID=34) to work on /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:00:40,537] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/vanmai-demo.py for tasks to queue
+[2022-06-10 22:00:40,538] {logging_mixin.py:104} INFO - [2022-06-10 22:00:40,538] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:00:40,555] {scheduler_job.py:639} INFO - DAG(s) dict_keys(['vanmai-demo']) retrieved from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:00:40,572] {logging_mixin.py:104} INFO - [2022-06-10 22:00:40,572] {dag.py:1818} INFO - Sync 1 DAGs
+[2022-06-10 22:00:40,584] {logging_mixin.py:104} INFO - [2022-06-10 22:00:40,584] {dag.py:2273} INFO - Setting next_dagrun for vanmai-demo to 2022-06-06 00:00:00+00:00
+[2022-06-10 22:00:40,592] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/vanmai-demo.py took 0.059 seconds
+[2022-06-10 22:01:10,768] {scheduler_job.py:182} INFO - Started process (PID=42) to work on /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:01:10,769] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/vanmai-demo.py for tasks to queue
+[2022-06-10 22:01:10,769] {logging_mixin.py:104} INFO - [2022-06-10 22:01:10,769] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:01:10,788] {scheduler_job.py:639} INFO - DAG(s) dict_keys(['vanmai-demo']) retrieved from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:01:10,801] {logging_mixin.py:104} INFO - [2022-06-10 22:01:10,801] {dag.py:1818} INFO - Sync 1 DAGs
+[2022-06-10 22:01:10,811] {logging_mixin.py:104} INFO - [2022-06-10 22:01:10,811] {dag.py:2273} INFO - Setting next_dagrun for vanmai-demo to 2022-06-06 00:00:00+00:00
+[2022-06-10 22:01:10,818] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/vanmai-demo.py took 0.053 seconds
+[2022-06-10 22:01:41,745] {scheduler_job.py:182} INFO - Started process (PID=61) to work on /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:01:41,746] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/vanmai-demo.py for tasks to queue
+[2022-06-10 22:01:41,747] {logging_mixin.py:104} INFO - [2022-06-10 22:01:41,747] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:01:41,767] {scheduler_job.py:639} INFO - DAG(s) dict_keys(['vanmai-demo']) retrieved from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:01:41,785] {logging_mixin.py:104} INFO - [2022-06-10 22:01:41,785] {dag.py:1818} INFO - Sync 1 DAGs
+[2022-06-10 22:01:41,795] {logging_mixin.py:104} INFO - [2022-06-10 22:01:41,795] {dag.py:2273} INFO - Setting next_dagrun for vanmai-demo to 2022-06-06 00:00:00+00:00
+[2022-06-10 22:01:41,802] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/vanmai-demo.py took 0.059 seconds
+[2022-06-10 22:02:12,001] {scheduler_job.py:182} INFO - Started process (PID=76) to work on /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:02:12,002] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/vanmai-demo.py for tasks to queue
+[2022-06-10 22:02:12,003] {logging_mixin.py:104} INFO - [2022-06-10 22:02:12,002] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:02:12,020] {scheduler_job.py:639} INFO - DAG(s) dict_keys(['vanmai-demo']) retrieved from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:02:12,033] {logging_mixin.py:104} INFO - [2022-06-10 22:02:12,033] {dag.py:1818} INFO - Sync 1 DAGs
+[2022-06-10 22:02:12,042] {logging_mixin.py:104} INFO - [2022-06-10 22:02:12,042] {dag.py:2273} INFO - Setting next_dagrun for vanmai-demo to 2022-06-06 00:00:00+00:00
+[2022-06-10 22:02:12,047] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/vanmai-demo.py took 0.048 seconds
+[2022-06-10 22:02:42,212] {scheduler_job.py:182} INFO - Started process (PID=79) to work on /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:02:42,213] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/vanmai-demo.py for tasks to queue
+[2022-06-10 22:02:42,214] {logging_mixin.py:104} INFO - [2022-06-10 22:02:42,214] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:02:42,237] {scheduler_job.py:639} INFO - DAG(s) dict_keys(['vanmai-demo']) retrieved from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:02:42,253] {logging_mixin.py:104} INFO - [2022-06-10 22:02:42,253] {dag.py:1818} INFO - Sync 1 DAGs
+[2022-06-10 22:02:42,262] {logging_mixin.py:104} INFO - [2022-06-10 22:02:42,262] {dag.py:2273} INFO - Setting next_dagrun for vanmai-demo to 2022-06-06 00:00:00+00:00
+[2022-06-10 22:02:42,268] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/vanmai-demo.py took 0.058 seconds
+[2022-06-10 22:03:12,418] {scheduler_job.py:182} INFO - Started process (PID=84) to work on /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:03:12,419] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/vanmai-demo.py for tasks to queue
+[2022-06-10 22:03:12,420] {logging_mixin.py:104} INFO - [2022-06-10 22:03:12,420] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:03:12,436] {scheduler_job.py:639} INFO - DAG(s) dict_keys(['vanmai-demo']) retrieved from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:03:12,448] {logging_mixin.py:104} INFO - [2022-06-10 22:03:12,448] {dag.py:1818} INFO - Sync 1 DAGs
+[2022-06-10 22:03:12,457] {logging_mixin.py:104} INFO - [2022-06-10 22:03:12,457] {dag.py:2273} INFO - Setting next_dagrun for vanmai-demo to 2022-06-06 00:00:00+00:00
+[2022-06-10 22:03:12,463] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/vanmai-demo.py took 0.047 seconds
+[2022-06-10 22:03:42,610] {scheduler_job.py:182} INFO - Started process (PID=89) to work on /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:03:42,610] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/vanmai-demo.py for tasks to queue
+[2022-06-10 22:03:42,611] {logging_mixin.py:104} INFO - [2022-06-10 22:03:42,611] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:03:42,627] {scheduler_job.py:639} INFO - DAG(s) dict_keys(['vanmai-demo']) retrieved from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:03:42,641] {logging_mixin.py:104} INFO - [2022-06-10 22:03:42,641] {dag.py:1818} INFO - Sync 1 DAGs
+[2022-06-10 22:03:42,651] {logging_mixin.py:104} INFO - [2022-06-10 22:03:42,651] {dag.py:2273} INFO - Setting next_dagrun for vanmai-demo to 2022-06-06 00:00:00+00:00
+[2022-06-10 22:03:42,659] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/vanmai-demo.py took 0.051 seconds
+[2022-06-10 22:04:12,809] {scheduler_job.py:182} INFO - Started process (PID=94) to work on /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:04:12,810] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/vanmai-demo.py for tasks to queue
+[2022-06-10 22:04:12,810] {logging_mixin.py:104} INFO - [2022-06-10 22:04:12,810] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:04:12,825] {scheduler_job.py:639} INFO - DAG(s) dict_keys(['vanmai-demo']) retrieved from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:04:12,838] {logging_mixin.py:104} INFO - [2022-06-10 22:04:12,838] {dag.py:1818} INFO - Sync 1 DAGs
+[2022-06-10 22:04:12,847] {logging_mixin.py:104} INFO - [2022-06-10 22:04:12,846] {dag.py:2273} INFO - Setting next_dagrun for vanmai-demo to 2022-06-06 00:00:00+00:00
+[2022-06-10 22:04:12,852] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/vanmai-demo.py took 0.046 seconds
+[2022-06-10 22:04:43,006] {scheduler_job.py:182} INFO - Started process (PID=99) to work on /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:04:43,007] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/vanmai-demo.py for tasks to queue
+[2022-06-10 22:04:43,008] {logging_mixin.py:104} INFO - [2022-06-10 22:04:43,007] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:04:43,025] {scheduler_job.py:639} INFO - DAG(s) dict_keys(['vanmai-demo']) retrieved from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:04:43,040] {logging_mixin.py:104} INFO - [2022-06-10 22:04:43,040] {dag.py:1818} INFO - Sync 1 DAGs
+[2022-06-10 22:04:43,050] {logging_mixin.py:104} INFO - [2022-06-10 22:04:43,050] {dag.py:2273} INFO - Setting next_dagrun for vanmai-demo to 2022-06-06 00:00:00+00:00
+[2022-06-10 22:04:43,057] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/vanmai-demo.py took 0.054 seconds
+[2022-06-10 22:05:13,233] {scheduler_job.py:182} INFO - Started process (PID=104) to work on /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:05:13,234] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/vanmai-demo.py for tasks to queue
+[2022-06-10 22:05:13,234] {logging_mixin.py:104} INFO - [2022-06-10 22:05:13,234] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:05:13,250] {scheduler_job.py:639} INFO - DAG(s) dict_keys(['vanmai-demo']) retrieved from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:05:13,263] {logging_mixin.py:104} INFO - [2022-06-10 22:05:13,263] {dag.py:1818} INFO - Sync 1 DAGs
+[2022-06-10 22:05:13,272] {logging_mixin.py:104} INFO - [2022-06-10 22:05:13,272] {dag.py:2273} INFO - Setting next_dagrun for vanmai-demo to 2022-06-06 00:00:00+00:00
+[2022-06-10 22:05:13,278] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/vanmai-demo.py took 0.047 seconds
+[2022-06-10 22:05:43,479] {scheduler_job.py:182} INFO - Started process (PID=109) to work on /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:05:43,481] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/vanmai-demo.py for tasks to queue
+[2022-06-10 22:05:43,482] {logging_mixin.py:104} INFO - [2022-06-10 22:05:43,482] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:05:43,513] {scheduler_job.py:639} INFO - DAG(s) dict_keys(['vanmai-demo']) retrieved from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:05:43,530] {logging_mixin.py:104} INFO - [2022-06-10 22:05:43,530] {dag.py:1818} INFO - Sync 1 DAGs
+[2022-06-10 22:05:43,541] {logging_mixin.py:104} INFO - [2022-06-10 22:05:43,541] {dag.py:2273} INFO - Setting next_dagrun for vanmai-demo to 2022-06-06 00:00:00+00:00
+[2022-06-10 22:05:43,549] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/vanmai-demo.py took 0.073 seconds
+[2022-06-10 22:06:13,697] {scheduler_job.py:182} INFO - Started process (PID=114) to work on /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:06:13,698] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/vanmai-demo.py for tasks to queue
+[2022-06-10 22:06:13,699] {logging_mixin.py:104} INFO - [2022-06-10 22:06:13,699] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:06:13,716] {scheduler_job.py:639} INFO - DAG(s) dict_keys(['vanmai-demo']) retrieved from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:06:13,731] {logging_mixin.py:104} INFO - [2022-06-10 22:06:13,730] {dag.py:1818} INFO - Sync 1 DAGs
+[2022-06-10 22:06:13,740] {logging_mixin.py:104} INFO - [2022-06-10 22:06:13,740] {dag.py:2273} INFO - Setting next_dagrun for vanmai-demo to 2022-06-06 00:00:00+00:00
+[2022-06-10 22:06:13,746] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/vanmai-demo.py took 0.051 seconds
+[2022-06-10 22:06:43,881] {scheduler_job.py:182} INFO - Started process (PID=119) to work on /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:06:43,882] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/vanmai-demo.py for tasks to queue
+[2022-06-10 22:06:43,883] {logging_mixin.py:104} INFO - [2022-06-10 22:06:43,883] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:06:43,901] {scheduler_job.py:639} INFO - DAG(s) dict_keys(['vanmai-demo']) retrieved from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:06:43,915] {logging_mixin.py:104} INFO - [2022-06-10 22:06:43,915] {dag.py:1818} INFO - Sync 1 DAGs
+[2022-06-10 22:06:43,924] {logging_mixin.py:104} INFO - [2022-06-10 22:06:43,924] {dag.py:2273} INFO - Setting next_dagrun for vanmai-demo to 2022-06-06 00:00:00+00:00
+[2022-06-10 22:06:43,931] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/vanmai-demo.py took 0.051 seconds
+[2022-06-10 22:07:14,069] {scheduler_job.py:182} INFO - Started process (PID=124) to work on /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:07:14,070] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/vanmai-demo.py for tasks to queue
+[2022-06-10 22:07:14,070] {logging_mixin.py:104} INFO - [2022-06-10 22:07:14,070] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:07:14,085] {scheduler_job.py:639} INFO - DAG(s) dict_keys(['vanmai-demo']) retrieved from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:07:14,098] {logging_mixin.py:104} INFO - [2022-06-10 22:07:14,098] {dag.py:1818} INFO - Sync 1 DAGs
+[2022-06-10 22:07:14,106] {logging_mixin.py:104} INFO - [2022-06-10 22:07:14,106] {dag.py:2273} INFO - Setting next_dagrun for vanmai-demo to 2022-06-06 00:00:00+00:00
+[2022-06-10 22:07:14,113] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/vanmai-demo.py took 0.046 seconds
+[2022-06-10 22:07:44,269] {scheduler_job.py:182} INFO - Started process (PID=129) to work on /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:07:44,270] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/vanmai-demo.py for tasks to queue
+[2022-06-10 22:07:44,270] {logging_mixin.py:104} INFO - [2022-06-10 22:07:44,270] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:07:44,287] {scheduler_job.py:639} INFO - DAG(s) dict_keys(['vanmai-demo']) retrieved from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:07:44,299] {logging_mixin.py:104} INFO - [2022-06-10 22:07:44,299] {dag.py:1818} INFO - Sync 1 DAGs
+[2022-06-10 22:07:44,307] {logging_mixin.py:104} INFO - [2022-06-10 22:07:44,307] {dag.py:2273} INFO - Setting next_dagrun for vanmai-demo to 2022-06-06 00:00:00+00:00
+[2022-06-10 22:07:44,314] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/vanmai-demo.py took 0.047 seconds
+[2022-06-10 22:08:14,460] {scheduler_job.py:182} INFO - Started process (PID=134) to work on /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:08:14,462] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/vanmai-demo.py for tasks to queue
+[2022-06-10 22:08:14,462] {logging_mixin.py:104} INFO - [2022-06-10 22:08:14,462] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:08:14,477] {scheduler_job.py:639} INFO - DAG(s) dict_keys(['vanmai-demo']) retrieved from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:08:14,490] {logging_mixin.py:104} INFO - [2022-06-10 22:08:14,490] {dag.py:1818} INFO - Sync 1 DAGs
+[2022-06-10 22:08:14,499] {logging_mixin.py:104} INFO - [2022-06-10 22:08:14,499] {dag.py:2273} INFO - Setting next_dagrun for vanmai-demo to 2022-06-06 00:00:00+00:00
+[2022-06-10 22:08:14,506] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/vanmai-demo.py took 0.047 seconds
+[2022-06-10 22:08:44,660] {scheduler_job.py:182} INFO - Started process (PID=139) to work on /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:08:44,661] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/vanmai-demo.py for tasks to queue
+[2022-06-10 22:08:44,662] {logging_mixin.py:104} INFO - [2022-06-10 22:08:44,661] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:08:44,677] {scheduler_job.py:639} INFO - DAG(s) dict_keys(['vanmai-demo']) retrieved from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:08:44,690] {logging_mixin.py:104} INFO - [2022-06-10 22:08:44,690] {dag.py:1818} INFO - Sync 1 DAGs
+[2022-06-10 22:08:44,701] {logging_mixin.py:104} INFO - [2022-06-10 22:08:44,701] {dag.py:2273} INFO - Setting next_dagrun for vanmai-demo to 2022-06-06 00:00:00+00:00
+[2022-06-10 22:08:44,706] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/vanmai-demo.py took 0.048 seconds
+[2022-06-10 22:09:14,871] {scheduler_job.py:182} INFO - Started process (PID=144) to work on /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:09:14,872] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/vanmai-demo.py for tasks to queue
+[2022-06-10 22:09:14,873] {logging_mixin.py:104} INFO - [2022-06-10 22:09:14,873] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:09:14,890] {scheduler_job.py:639} INFO - DAG(s) dict_keys(['vanmai-demo']) retrieved from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:09:14,902] {logging_mixin.py:104} INFO - [2022-06-10 22:09:14,902] {dag.py:1818} INFO - Sync 1 DAGs
+[2022-06-10 22:09:14,912] {logging_mixin.py:104} INFO - [2022-06-10 22:09:14,912] {dag.py:2273} INFO - Setting next_dagrun for vanmai-demo to 2022-06-06 00:00:00+00:00
+[2022-06-10 22:09:14,918] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/vanmai-demo.py took 0.049 seconds
+[2022-06-10 22:09:45,047] {scheduler_job.py:182} INFO - Started process (PID=149) to work on /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:09:45,048] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/vanmai-demo.py for tasks to queue
+[2022-06-10 22:09:45,049] {logging_mixin.py:104} INFO - [2022-06-10 22:09:45,049] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:09:45,066] {scheduler_job.py:639} INFO - DAG(s) dict_keys(['vanmai-demo']) retrieved from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:09:45,078] {logging_mixin.py:104} INFO - [2022-06-10 22:09:45,078] {dag.py:1818} INFO - Sync 1 DAGs
+[2022-06-10 22:09:45,088] {logging_mixin.py:104} INFO - [2022-06-10 22:09:45,088] {dag.py:2273} INFO - Setting next_dagrun for vanmai-demo to 2022-06-06 00:00:00+00:00
+[2022-06-10 22:09:45,094] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/vanmai-demo.py took 0.049 seconds
+[2022-06-10 22:10:15,256] {scheduler_job.py:182} INFO - Started process (PID=154) to work on /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:10:15,257] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/vanmai-demo.py for tasks to queue
+[2022-06-10 22:10:15,257] {logging_mixin.py:104} INFO - [2022-06-10 22:10:15,257] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:10:15,272] {scheduler_job.py:639} INFO - DAG(s) dict_keys(['vanmai-demo']) retrieved from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:10:15,285] {logging_mixin.py:104} INFO - [2022-06-10 22:10:15,285] {dag.py:1818} INFO - Sync 1 DAGs
+[2022-06-10 22:10:15,294] {logging_mixin.py:104} INFO - [2022-06-10 22:10:15,294] {dag.py:2273} INFO - Setting next_dagrun for vanmai-demo to 2022-06-06 00:00:00+00:00
+[2022-06-10 22:10:15,301] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/vanmai-demo.py took 0.047 seconds
+[2022-06-10 22:10:45,489] {scheduler_job.py:182} INFO - Started process (PID=159) to work on /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:10:45,490] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/vanmai-demo.py for tasks to queue
+[2022-06-10 22:10:45,491] {logging_mixin.py:104} INFO - [2022-06-10 22:10:45,491] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:10:45,505] {scheduler_job.py:639} INFO - DAG(s) dict_keys(['vanmai-demo']) retrieved from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:10:45,519] {logging_mixin.py:104} INFO - [2022-06-10 22:10:45,519] {dag.py:1818} INFO - Sync 1 DAGs
+[2022-06-10 22:10:45,527] {logging_mixin.py:104} INFO - [2022-06-10 22:10:45,527] {dag.py:2273} INFO - Setting next_dagrun for vanmai-demo to 2022-06-06 00:00:00+00:00
+[2022-06-10 22:10:45,533] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/vanmai-demo.py took 0.046 seconds
+[2022-06-10 22:11:15,683] {scheduler_job.py:182} INFO - Started process (PID=164) to work on /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:11:15,684] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/vanmai-demo.py for tasks to queue
+[2022-06-10 22:11:15,684] {logging_mixin.py:104} INFO - [2022-06-10 22:11:15,684] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:11:15,700] {scheduler_job.py:639} INFO - DAG(s) dict_keys(['vanmai-demo']) retrieved from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:11:15,715] {logging_mixin.py:104} INFO - [2022-06-10 22:11:15,715] {dag.py:1818} INFO - Sync 1 DAGs
+[2022-06-10 22:11:15,724] {logging_mixin.py:104} INFO - [2022-06-10 22:11:15,724] {dag.py:2273} INFO - Setting next_dagrun for vanmai-demo to 2022-06-06 00:00:00+00:00
+[2022-06-10 22:11:15,730] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/vanmai-demo.py took 0.049 seconds
+[2022-06-10 22:11:45,870] {scheduler_job.py:182} INFO - Started process (PID=169) to work on /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:11:45,871] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/vanmai-demo.py for tasks to queue
+[2022-06-10 22:11:45,872] {logging_mixin.py:104} INFO - [2022-06-10 22:11:45,871] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:11:45,886] {scheduler_job.py:639} INFO - DAG(s) dict_keys(['vanmai-demo']) retrieved from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:11:45,903] {logging_mixin.py:104} INFO - [2022-06-10 22:11:45,903] {dag.py:1818} INFO - Sync 1 DAGs
+[2022-06-10 22:11:45,913] {logging_mixin.py:104} INFO - [2022-06-10 22:11:45,913] {dag.py:2273} INFO - Setting next_dagrun for vanmai-demo to 2022-06-06 00:00:00+00:00
+[2022-06-10 22:11:45,920] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/vanmai-demo.py took 0.052 seconds
+[2022-06-10 22:12:16,050] {scheduler_job.py:182} INFO - Started process (PID=174) to work on /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:12:16,051] {scheduler_job.py:629} INFO - Processing file /opt/airflow/dags/vanmai-demo.py for tasks to queue
+[2022-06-10 22:12:16,052] {logging_mixin.py:104} INFO - [2022-06-10 22:12:16,052] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:12:16,068] {scheduler_job.py:639} INFO - DAG(s) dict_keys(['vanmai-demo']) retrieved from /opt/airflow/dags/vanmai-demo.py
+[2022-06-10 22:12:16,083] {logging_mixin.py:104} INFO - [2022-06-10 22:12:16,083] {dag.py:1818} INFO - Sync 1 DAGs
+[2022-06-10 22:12:16,092] {logging_mixin.py:104} INFO - [2022-06-10 22:12:16,092] {dag.py:2273} INFO - Setting next_dagrun for vanmai-demo to 2022-06-06 00:00:00+00:00
+[2022-06-10 22:12:16,098] {scheduler_job.py:190} INFO - Processing /opt/airflow/dags/vanmai-demo.py took 0.049 seconds
