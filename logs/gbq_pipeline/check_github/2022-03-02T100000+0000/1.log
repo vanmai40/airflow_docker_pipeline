@@ -1,0 +1,170 @@
+[2022-06-06 15:23:19,713] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.check_github 2022-03-02T10:00:00+00:00 [queued]>
+[2022-06-06 15:23:19,740] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.check_github 2022-03-02T10:00:00+00:00 [queued]>
+[2022-06-06 15:23:19,740] {taskinstance.py:1042} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 15:23:19,741] {taskinstance.py:1043} INFO - Starting attempt 1 of 3
+[2022-06-06 15:23:19,741] {taskinstance.py:1044} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 15:23:19,751] {taskinstance.py:1063} INFO - Executing <Task(BigQueryCheckOperator): check_github> on 2022-03-02T10:00:00+00:00
+[2022-06-06 15:23:19,757] {standard_task_runner.py:52} INFO - Started process 223 to run task
+[2022-06-06 15:23:19,764] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'gbq_pipeline', 'check_github', '2022-03-02T10:00:00+00:00', '--job-id', '372', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/gbq_pipeline.py', '--cfg-path', '/tmp/tmpe6z5dato', '--error-file', '/tmp/tmp1tpco340']
+[2022-06-06 15:23:19,766] {standard_task_runner.py:77} INFO - Job 372: Subtask check_github
+[2022-06-06 15:23:19,810] {logging_mixin.py:104} INFO - Running <TaskInstance: gbq_pipeline.check_github 2022-03-02T10:00:00+00:00 [running]> on host c40819a450e3
+[2022-06-06 15:23:19,845] {taskinstance.py:1257} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=airflow@airflow.com
+AIRFLOW_CTX_DAG_OWNER=vanmai-airflow
+AIRFLOW_CTX_DAG_ID=gbq_pipeline
+AIRFLOW_CTX_TASK_ID=check_github
+AIRFLOW_CTX_EXECUTION_DATE=2022-03-02T10:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-03-02T10:00:00+00:00
+[2022-06-06 15:23:19,847] {sql.py:87} INFO - Executing SQL check: 
+        SELECT "20220302" IN 
+          (
+          SELECT table_id
+          FROM `githubarchive.day.__TABLES_SUMMARY__`
+          )
+        
+[2022-06-06 15:23:19,857] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py:120 DeprecationWarning: This method will be deprecated. Please use `BigQueryHook.get_client` method
+[2022-06-06 15:23:20,259] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py:2052 DeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2022-06-06 15:23:20,261] {bigquery.py:1510} INFO - Inserting job airflow_1654529000260262_982e5caba7c7850f342447fcb8506c7a
+[2022-06-06 15:23:22,060] {sql.py:90} INFO - Record: [True]
+[2022-06-06 15:23:22,060] {sql.py:96} INFO - Success.
+[2022-06-06 15:23:22,067] {taskinstance.py:1166} INFO - Marking task as SUCCESS. dag_id=gbq_pipeline, task_id=check_github, execution_date=20220302T100000, start_date=20220606T152319, end_date=20220606T152322
+[2022-06-06 15:23:22,091] {taskinstance.py:1220} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2022-06-06 15:23:22,106] {local_task_job.py:146} INFO - Task exited with return code 0
+[2022-06-06 16:25:15,462] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.check_github 2022-03-02T10:00:00+00:00 [queued]>
+[2022-06-06 16:25:15,488] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.check_github 2022-03-02T10:00:00+00:00 [queued]>
+[2022-06-06 16:25:15,488] {taskinstance.py:1042} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 16:25:15,489] {taskinstance.py:1043} INFO - Starting attempt 1 of 3
+[2022-06-06 16:25:15,489] {taskinstance.py:1044} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 16:25:15,495] {taskinstance.py:1063} INFO - Executing <Task(BigQueryCheckOperator): check_github> on 2022-03-02T10:00:00+00:00
+[2022-06-06 16:25:15,500] {standard_task_runner.py:52} INFO - Started process 371 to run task
+[2022-06-06 16:25:15,503] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'gbq_pipeline', 'check_github', '2022-03-02T10:00:00+00:00', '--job-id', '422', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/gbq_pipeline.py', '--cfg-path', '/tmp/tmp6n289ss0', '--error-file', '/tmp/tmpvy_6yx_0']
+[2022-06-06 16:25:15,506] {standard_task_runner.py:77} INFO - Job 422: Subtask check_github
+[2022-06-06 16:25:15,545] {logging_mixin.py:104} INFO - Running <TaskInstance: gbq_pipeline.check_github 2022-03-02T10:00:00+00:00 [running]> on host c40819a450e3
+[2022-06-06 16:25:15,584] {taskinstance.py:1257} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=airflow@airflow.com
+AIRFLOW_CTX_DAG_OWNER=vanmai-airflow
+AIRFLOW_CTX_DAG_ID=gbq_pipeline
+AIRFLOW_CTX_TASK_ID=check_github
+AIRFLOW_CTX_EXECUTION_DATE=2022-03-02T10:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-03-02T10:00:00+00:00
+[2022-06-06 16:25:15,586] {sql.py:87} INFO - Executing SQL check: 
+        SELECT "20220302" IN 
+          (
+          SELECT table_id
+          FROM `githubarchive.day.__TABLES_SUMMARY__`
+          )
+        
+[2022-06-06 16:25:15,594] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py:120 DeprecationWarning: This method will be deprecated. Please use `BigQueryHook.get_client` method
+[2022-06-06 16:25:16,079] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py:2052 DeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2022-06-06 16:25:16,080] {bigquery.py:1510} INFO - Inserting job airflow_1654532716079878_982e5caba7c7850f342447fcb8506c7a
+[2022-06-06 16:25:18,176] {sql.py:90} INFO - Record: [True]
+[2022-06-06 16:25:18,177] {sql.py:96} INFO - Success.
+[2022-06-06 16:25:18,214] {taskinstance.py:1166} INFO - Marking task as SUCCESS. dag_id=gbq_pipeline, task_id=check_github, execution_date=20220302T100000, start_date=20220606T162515, end_date=20220606T162518
+[2022-06-06 16:25:18,532] {taskinstance.py:1220} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2022-06-06 16:25:18,570] {local_task_job.py:146} INFO - Task exited with return code 0
+[2022-06-06 16:56:00,738] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.check_github 2022-03-02T10:00:00+00:00 [queued]>
+[2022-06-06 16:56:00,761] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.check_github 2022-03-02T10:00:00+00:00 [queued]>
+[2022-06-06 16:56:00,762] {taskinstance.py:1042} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 16:56:00,762] {taskinstance.py:1043} INFO - Starting attempt 1 of 3
+[2022-06-06 16:56:00,763] {taskinstance.py:1044} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 16:56:00,770] {taskinstance.py:1063} INFO - Executing <Task(BigQueryCheckOperator): check_github> on 2022-03-02T10:00:00+00:00
+[2022-06-06 16:56:00,775] {standard_task_runner.py:52} INFO - Started process 494 to run task
+[2022-06-06 16:56:00,778] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'gbq_pipeline', 'check_github', '2022-03-02T10:00:00+00:00', '--job-id', '463', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/gbq_pipeline.py', '--cfg-path', '/tmp/tmpzynyp80n', '--error-file', '/tmp/tmptvb1jw1c']
+[2022-06-06 16:56:00,780] {standard_task_runner.py:77} INFO - Job 463: Subtask check_github
+[2022-06-06 16:56:00,815] {logging_mixin.py:104} INFO - Running <TaskInstance: gbq_pipeline.check_github 2022-03-02T10:00:00+00:00 [running]> on host c40819a450e3
+[2022-06-06 16:56:00,844] {taskinstance.py:1257} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=airflow@airflow.com
+AIRFLOW_CTX_DAG_OWNER=vanmai-airflow
+AIRFLOW_CTX_DAG_ID=gbq_pipeline
+AIRFLOW_CTX_TASK_ID=check_github
+AIRFLOW_CTX_EXECUTION_DATE=2022-03-02T10:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-03-02T10:00:00+00:00
+[2022-06-06 16:56:00,846] {sql.py:87} INFO - Executing SQL check: 
+        SELECT "20220302" IN 
+          (
+          SELECT table_id
+          FROM `githubarchive.day.__TABLES_SUMMARY__`
+          )
+        
+[2022-06-06 16:56:00,855] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py:120 DeprecationWarning: This method will be deprecated. Please use `BigQueryHook.get_client` method
+[2022-06-06 16:56:01,218] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py:2052 DeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2022-06-06 16:56:01,219] {bigquery.py:1510} INFO - Inserting job airflow_1654534561219268_982e5caba7c7850f342447fcb8506c7a
+[2022-06-06 16:56:02,855] {sql.py:90} INFO - Record: [True]
+[2022-06-06 16:56:02,855] {sql.py:96} INFO - Success.
+[2022-06-06 16:56:02,862] {taskinstance.py:1166} INFO - Marking task as SUCCESS. dag_id=gbq_pipeline, task_id=check_github, execution_date=20220302T100000, start_date=20220606T165600, end_date=20220606T165602
+[2022-06-06 16:56:02,888] {taskinstance.py:1220} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2022-06-06 16:56:02,920] {local_task_job.py:146} INFO - Task exited with return code 0
+[2022-06-06 16:57:35,158] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.check_github 2022-03-02T10:00:00+00:00 [queued]>
+[2022-06-06 16:57:35,181] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.check_github 2022-03-02T10:00:00+00:00 [queued]>
+[2022-06-06 16:57:35,181] {taskinstance.py:1042} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 16:57:35,181] {taskinstance.py:1043} INFO - Starting attempt 1 of 3
+[2022-06-06 16:57:35,181] {taskinstance.py:1044} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 16:57:35,188] {taskinstance.py:1063} INFO - Executing <Task(BigQueryCheckOperator): check_github> on 2022-03-02T10:00:00+00:00
+[2022-06-06 16:57:35,193] {standard_task_runner.py:52} INFO - Started process 584 to run task
+[2022-06-06 16:57:35,197] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'gbq_pipeline', 'check_github', '2022-03-02T10:00:00+00:00', '--job-id', '493', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/gbq_pipeline.py', '--cfg-path', '/tmp/tmpkpiwma22', '--error-file', '/tmp/tmpnmwfw1ce']
+[2022-06-06 16:57:35,199] {standard_task_runner.py:77} INFO - Job 493: Subtask check_github
+[2022-06-06 16:57:35,235] {logging_mixin.py:104} INFO - Running <TaskInstance: gbq_pipeline.check_github 2022-03-02T10:00:00+00:00 [running]> on host c40819a450e3
+[2022-06-06 16:57:35,266] {taskinstance.py:1257} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=airflow@airflow.com
+AIRFLOW_CTX_DAG_OWNER=vanmai-airflow
+AIRFLOW_CTX_DAG_ID=gbq_pipeline
+AIRFLOW_CTX_TASK_ID=check_github
+AIRFLOW_CTX_EXECUTION_DATE=2022-03-02T10:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-03-02T10:00:00+00:00
+[2022-06-06 16:57:35,267] {sql.py:87} INFO - Executing SQL check: 
+        SELECT "20220302" IN 
+          (
+          SELECT table_id
+          FROM `githubarchive.day.__TABLES_SUMMARY__`
+          )
+        
+[2022-06-06 16:57:35,275] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py:120 DeprecationWarning: This method will be deprecated. Please use `BigQueryHook.get_client` method
+[2022-06-06 16:57:35,640] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py:2052 DeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2022-06-06 16:57:35,641] {bigquery.py:1510} INFO - Inserting job airflow_1654534655641120_982e5caba7c7850f342447fcb8506c7a
+[2022-06-06 16:57:37,763] {sql.py:90} INFO - Record: [True]
+[2022-06-06 16:57:37,763] {sql.py:96} INFO - Success.
+[2022-06-06 16:57:37,773] {taskinstance.py:1166} INFO - Marking task as SUCCESS. dag_id=gbq_pipeline, task_id=check_github, execution_date=20220302T100000, start_date=20220606T165735, end_date=20220606T165737
+[2022-06-06 16:57:37,903] {taskinstance.py:1220} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2022-06-06 16:57:37,942] {local_task_job.py:146} INFO - Task exited with return code 0
+[2022-06-06 16:59:42,207] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.check_github 2022-03-02T10:00:00+00:00 [queued]>
+[2022-06-06 16:59:42,217] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.check_github 2022-03-02T10:00:00+00:00 [queued]>
+[2022-06-06 16:59:42,217] {taskinstance.py:1042} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 16:59:42,218] {taskinstance.py:1043} INFO - Starting attempt 1 of 3
+[2022-06-06 16:59:42,218] {taskinstance.py:1044} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 16:59:42,227] {taskinstance.py:1063} INFO - Executing <Task(BigQueryCheckOperator): check_github> on 2022-03-02T10:00:00+00:00
+[2022-06-06 16:59:42,232] {standard_task_runner.py:52} INFO - Started process 684 to run task
+[2022-06-06 16:59:42,236] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'gbq_pipeline', 'check_github', '2022-03-02T10:00:00+00:00', '--job-id', '527', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/gbq_pipeline.py', '--cfg-path', '/tmp/tmp8twpb_ul', '--error-file', '/tmp/tmpjryt0zek']
+[2022-06-06 16:59:42,238] {standard_task_runner.py:77} INFO - Job 527: Subtask check_github
+[2022-06-06 16:59:42,274] {logging_mixin.py:104} INFO - Running <TaskInstance: gbq_pipeline.check_github 2022-03-02T10:00:00+00:00 [running]> on host c40819a450e3
+[2022-06-06 16:59:42,308] {taskinstance.py:1257} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=airflow@airflow.com
+AIRFLOW_CTX_DAG_OWNER=vanmai-airflow
+AIRFLOW_CTX_DAG_ID=gbq_pipeline
+AIRFLOW_CTX_TASK_ID=check_github
+AIRFLOW_CTX_EXECUTION_DATE=2022-03-02T10:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-03-02T10:00:00+00:00
+[2022-06-06 16:59:42,310] {sql.py:87} INFO - Executing SQL check: 
+        SELECT "20220302" IN 
+          (
+          SELECT table_id
+          FROM `githubarchive.day.__TABLES_SUMMARY__`
+          )
+        
+[2022-06-06 16:59:42,321] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py:120 DeprecationWarning: This method will be deprecated. Please use `BigQueryHook.get_client` method
+[2022-06-06 16:59:42,724] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py:2052 DeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2022-06-06 16:59:42,725] {bigquery.py:1510} INFO - Inserting job airflow_1654534782724869_982e5caba7c7850f342447fcb8506c7a
+[2022-06-06 16:59:44,309] {sql.py:90} INFO - Record: [True]
+[2022-06-06 16:59:44,310] {sql.py:96} INFO - Success.
+[2022-06-06 16:59:44,319] {taskinstance.py:1166} INFO - Marking task as SUCCESS. dag_id=gbq_pipeline, task_id=check_github, execution_date=20220302T100000, start_date=20220606T165942, end_date=20220606T165944
+[2022-06-06 16:59:44,341] {taskinstance.py:1220} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2022-06-06 16:59:44,376] {local_task_job.py:146} INFO - Task exited with return code 0

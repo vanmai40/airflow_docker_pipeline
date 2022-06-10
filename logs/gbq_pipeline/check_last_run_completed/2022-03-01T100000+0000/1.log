@@ -1,0 +1,101 @@
+[2022-06-06 16:01:54,924] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.check_last_run_completed 2022-03-01T10:00:00+00:00 [queued]>
+[2022-06-06 16:01:54,934] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: gbq_pipeline.check_last_run_completed 2022-03-01T10:00:00+00:00 [queued]>
+[2022-06-06 16:01:54,935] {taskinstance.py:1042} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 16:01:54,935] {taskinstance.py:1043} INFO - Starting attempt 1 of 3
+[2022-06-06 16:01:54,935] {taskinstance.py:1044} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 16:01:54,945] {taskinstance.py:1063} INFO - Executing <Task(BigQueryCheckOperator): check_last_run_completed> on 2022-03-01T10:00:00+00:00
+[2022-06-06 16:01:54,949] {standard_task_runner.py:52} INFO - Started process 354 to run task
+[2022-06-06 16:01:54,952] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'gbq_pipeline', 'check_last_run_completed', '2022-03-01T10:00:00+00:00', '--job-id', '417', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/gbq_pipeline.py', '--cfg-path', '/tmp/tmpsuzbsdw5', '--error-file', '/tmp/tmp8w1nv5gs']
+[2022-06-06 16:01:54,954] {standard_task_runner.py:77} INFO - Job 417: Subtask check_last_run_completed
+[2022-06-06 16:01:54,986] {logging_mixin.py:104} INFO - Running <TaskInstance: gbq_pipeline.check_last_run_completed 2022-03-01T10:00:00+00:00 [running]> on host c40819a450e3
+[2022-06-06 16:01:55,015] {taskinstance.py:1257} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=airflow@airflow.com
+AIRFLOW_CTX_DAG_OWNER=vanmai-airflow
+AIRFLOW_CTX_DAG_ID=gbq_pipeline
+AIRFLOW_CTX_TASK_ID=check_last_run_completed
+AIRFLOW_CTX_EXECUTION_DATE=2022-03-01T10:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-03-01T10:00:00+00:00
+[2022-06-06 16:01:55,017] {sql.py:87} INFO - Executing SQL check: 
+    SELECT 
+        CASE 
+          WHEN "20220301" = '20220301' THEN TRUE
+          WHEN "20220301" != '20220301'  THEN 
+                            (SELECT "20220228" =
+                              (
+                              SELECT max(date)
+                              FROM `airflow-project-352316.github_curated.github_hackernews_join`
+                              ))
+          END
+    
+[2022-06-06 16:01:55,024] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py:120 DeprecationWarning: This method will be deprecated. Please use `BigQueryHook.get_client` method
+[2022-06-06 16:01:55,499] {logging_mixin.py:104} WARNING - /home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py:2052 DeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2022-06-06 16:01:55,500] {bigquery.py:1510} INFO - Inserting job airflow_1654531315499939_e5160069f746a6a057ff0188ffcd4e12
+[2022-06-06 16:01:56,001] {taskinstance.py:1455} ERROR - 404 Not found: Table airflow-project-352316:github_curated.github_hackernews_join was not found in location US
+
+(job ID: airflow_1654531315499939_e5160069f746a6a057ff0188ffcd4e12)
+
+                                   -----Query Job SQL Follows-----                                    
+
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+   1:
+   2:    SELECT 
+   3:        CASE 
+   4:          WHEN "20220301" = '20220301' THEN TRUE
+   5:          WHEN "20220301" != '20220301'  THEN 
+   6:                            (SELECT "20220228" =
+   7:                              (
+   8:                              SELECT max(date)
+   9:                              FROM `airflow-project-352316.github_curated.github_hackernews_join`
+  10:                              ))
+  11:          END
+  12:    
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1112, in _run_raw_task
+    self._prepare_and_execute_task_with_callbacks(context, task)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1285, in _prepare_and_execute_task_with_callbacks
+    result = self._execute_task(context, task_copy)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1315, in _execute_task
+    result = task_copy.execute(context=context)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/operators/sql.py", line 88, in execute
+    records = self.get_db_hook().get_first(self.sql)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/hooks/dbapi.py", line 152, in get_first
+    cur.execute(sql)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py", line 2639, in execute
+    self.job_id = self.hook.run_query(sql)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py", line 2186, in run_query
+    job = self.insert_job(configuration=configuration, project_id=self.project_id)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/common/hooks/base_google.py", line 425, in inner_wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/bigquery.py", line 1512, in insert_job
+    job.result()
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/query.py", line 1159, in result
+    super(QueryJob, self).result(retry=retry, timeout=timeout)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/bigquery/job/base.py", line 631, in result
+    return super(_AsyncJob, self).result(timeout=timeout, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/api_core/future/polling.py", line 134, in result
+    raise self._exception
+google.api_core.exceptions.NotFound: 404 Not found: Table airflow-project-352316:github_curated.github_hackernews_join was not found in location US
+
+(job ID: airflow_1654531315499939_e5160069f746a6a057ff0188ffcd4e12)
+
+                                   -----Query Job SQL Follows-----                                    
+
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+   1:
+   2:    SELECT 
+   3:        CASE 
+   4:          WHEN "20220301" = '20220301' THEN TRUE
+   5:          WHEN "20220301" != '20220301'  THEN 
+   6:                            (SELECT "20220228" =
+   7:                              (
+   8:                              SELECT max(date)
+   9:                              FROM `airflow-project-352316.github_curated.github_hackernews_join`
+  10:                              ))
+  11:          END
+  12:    
+    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |    .    |
+[2022-06-06 16:01:56,003] {taskinstance.py:1503} INFO - Marking task as UP_FOR_RETRY. dag_id=gbq_pipeline, task_id=check_last_run_completed, execution_date=20220301T100000, start_date=20220606T160154, end_date=20220606T160156
+[2022-06-06 16:01:56,050] {local_task_job.py:146} INFO - Task exited with return code 1
