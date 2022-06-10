@@ -1,0 +1,28 @@
+[2022-06-06 10:52:35,380] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: vanmai-demo.t1_print_date 2022-06-05T00:00:00+00:00 [queued]>
+[2022-06-06 10:52:35,390] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: vanmai-demo.t1_print_date 2022-06-05T00:00:00+00:00 [queued]>
+[2022-06-06 10:52:35,390] {taskinstance.py:1042} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 10:52:35,391] {taskinstance.py:1043} INFO - Starting attempt 1 of 2
+[2022-06-06 10:52:35,391] {taskinstance.py:1044} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-06 10:52:35,401] {taskinstance.py:1063} INFO - Executing <Task(BashOperator): t1_print_date> on 2022-06-05T00:00:00+00:00
+[2022-06-06 10:52:35,407] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'vanmai-demo', 't1_print_date', '2022-06-05T00:00:00+00:00', '--job-id', '283', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/vanmai-demo.py', '--cfg-path', '/tmp/tmpxlo4eyzg', '--error-file', '/tmp/tmpx1uxtyqh']
+[2022-06-06 10:52:35,405] {standard_task_runner.py:52} INFO - Started process 48 to run task
+[2022-06-06 10:52:35,408] {standard_task_runner.py:77} INFO - Job 283: Subtask t1_print_date
+[2022-06-06 10:52:35,441] {logging_mixin.py:104} INFO - Running <TaskInstance: vanmai-demo.t1_print_date 2022-06-05T00:00:00+00:00 [running]> on host 92fcc90275da
+[2022-06-06 10:52:35,471] {taskinstance.py:1257} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=airflow@example.com
+AIRFLOW_CTX_DAG_OWNER=vanmai
+AIRFLOW_CTX_DAG_ID=vanmai-demo
+AIRFLOW_CTX_TASK_ID=t1_print_date
+AIRFLOW_CTX_EXECUTION_DATE=2022-06-05T00:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-06-05T00:00:00+00:00
+[2022-06-06 10:52:35,472] {bash.py:135} INFO - Tmp dir root location: 
+ /tmp
+[2022-06-06 10:52:35,473] {bash.py:158} INFO - Running command: date
+[2022-06-06 10:52:35,479] {bash.py:169} INFO - Output:
+[2022-06-06 10:52:35,481] {bash.py:173} INFO - Mon Jun  6 10:52:35 UTC 2022
+[2022-06-06 10:52:35,482] {bash.py:177} INFO - Command exited with return code 0
+[2022-06-06 10:52:35,502] {taskinstance.py:1166} INFO - Marking task as SUCCESS. dag_id=vanmai-demo, task_id=t1_print_date, execution_date=20220605T000000, start_date=20220606T105235, end_date=20220606T105235
+[2022-06-06 10:52:35,526] {taskinstance.py:1220} INFO - 2 downstream tasks scheduled from follow-on schedule check
+[2022-06-06 10:52:35,542] {local_task_job.py:146} INFO - Task exited with return code 0

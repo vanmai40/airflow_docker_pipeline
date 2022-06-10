@@ -1,0 +1,63 @@
+[2022-06-05 22:02:28,679] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: vanmai-demo.t3_templated 2022-05-24T00:00:00+00:00 [queued]>
+[2022-06-05 22:02:28,700] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: vanmai-demo.t3_templated 2022-05-24T00:00:00+00:00 [queued]>
+[2022-06-05 22:02:28,701] {taskinstance.py:1042} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-05 22:02:28,702] {taskinstance.py:1043} INFO - Starting attempt 1 of 2
+[2022-06-05 22:02:28,703] {taskinstance.py:1044} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-05 22:02:28,714] {taskinstance.py:1063} INFO - Executing <Task(BashOperator): t3_templated> on 2022-05-24T00:00:00+00:00
+[2022-06-05 22:02:28,722] {standard_task_runner.py:52} INFO - Started process 86 to run task
+[2022-06-05 22:02:28,728] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'vanmai-demo', 't3_templated', '2022-05-24T00:00:00+00:00', '--job-id', '234', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/vanmai-demo.py', '--cfg-path', '/tmp/tmp66adcbs8', '--error-file', '/tmp/tmpwuaju749']
+[2022-06-05 22:02:28,729] {standard_task_runner.py:77} INFO - Job 234: Subtask t3_templated
+[2022-06-05 22:02:28,780] {logging_mixin.py:104} INFO - Running <TaskInstance: vanmai-demo.t3_templated 2022-05-24T00:00:00+00:00 [running]> on host 173d5ef1e4be
+[2022-06-05 22:02:28,841] {taskinstance.py:1257} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=airflow@example.com
+AIRFLOW_CTX_DAG_OWNER=vanmai
+AIRFLOW_CTX_DAG_ID=vanmai-demo
+AIRFLOW_CTX_TASK_ID=t3_templated
+AIRFLOW_CTX_EXECUTION_DATE=2022-05-24T00:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2022-05-24T00:00:00+00:00
+[2022-06-05 22:02:28,842] {bash.py:135} INFO - Tmp dir root location: 
+ /tmp
+[2022-06-05 22:02:28,843] {bash.py:158} INFO - Running command: 
+
+    echo "2022-05-24"
+    echo "2022-05-31"
+    echo "Parameter I passed in"
+
+    echo "2022-05-24"
+    echo "2022-05-31"
+    echo "Parameter I passed in"
+
+    echo "2022-05-24"
+    echo "2022-05-31"
+    echo "Parameter I passed in"
+
+    echo "2022-05-24"
+    echo "2022-05-31"
+    echo "Parameter I passed in"
+
+    echo "2022-05-24"
+    echo "2022-05-31"
+    echo "Parameter I passed in"
+
+[2022-06-05 22:02:28,855] {bash.py:169} INFO - Output:
+[2022-06-05 22:02:28,856] {bash.py:173} INFO - 2022-05-24
+[2022-06-05 22:02:28,856] {bash.py:173} INFO - 2022-05-31
+[2022-06-05 22:02:28,857] {bash.py:173} INFO - Parameter I passed in
+[2022-06-05 22:02:28,857] {bash.py:173} INFO - 2022-05-24
+[2022-06-05 22:02:28,857] {bash.py:173} INFO - 2022-05-31
+[2022-06-05 22:02:28,857] {bash.py:173} INFO - Parameter I passed in
+[2022-06-05 22:02:28,858] {bash.py:173} INFO - 2022-05-24
+[2022-06-05 22:02:28,858] {bash.py:173} INFO - 2022-05-31
+[2022-06-05 22:02:28,858] {bash.py:173} INFO - Parameter I passed in
+[2022-06-05 22:02:28,858] {bash.py:173} INFO - 2022-05-24
+[2022-06-05 22:02:28,859] {bash.py:173} INFO - 2022-05-31
+[2022-06-05 22:02:28,859] {bash.py:173} INFO - Parameter I passed in
+[2022-06-05 22:02:28,859] {bash.py:173} INFO - 2022-05-24
+[2022-06-05 22:02:28,859] {bash.py:173} INFO - 2022-05-31
+[2022-06-05 22:02:28,860] {bash.py:173} INFO - Parameter I passed in
+[2022-06-05 22:02:28,860] {bash.py:177} INFO - Command exited with return code 0
+[2022-06-05 22:02:28,892] {taskinstance.py:1166} INFO - Marking task as SUCCESS. dag_id=vanmai-demo, task_id=t3_templated, execution_date=20220524T000000, start_date=20220605T220228, end_date=20220605T220228
+[2022-06-05 22:02:28,944] {taskinstance.py:1220} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2022-06-05 22:02:28,985] {local_task_job.py:146} INFO - Task exited with return code 0

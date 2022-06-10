@@ -1,0 +1,63 @@
+[2022-06-05 19:14:24,586] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: tutorial.templated 2022-06-05T19:14:22.425619+00:00 [queued]>
+[2022-06-05 19:14:24,597] {taskinstance.py:851} INFO - Dependencies all met for <TaskInstance: tutorial.templated 2022-06-05T19:14:22.425619+00:00 [queued]>
+[2022-06-05 19:14:24,597] {taskinstance.py:1042} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-05 19:14:24,598] {taskinstance.py:1043} INFO - Starting attempt 1 of 2
+[2022-06-05 19:14:24,598] {taskinstance.py:1044} INFO - 
+--------------------------------------------------------------------------------
+[2022-06-05 19:14:24,604] {taskinstance.py:1063} INFO - Executing <Task(BashOperator): templated> on 2022-06-05T19:14:22.425619+00:00
+[2022-06-05 19:14:24,607] {standard_task_runner.py:52} INFO - Started process 53 to run task
+[2022-06-05 19:14:24,610] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'tutorial', 'templated', '2022-06-05T19:14:22.425619+00:00', '--job-id', '220', '--pool', 'default_pool', '--raw', '--subdir', '/home/airflow/.local/lib/python3.6/site-packages/airflow/example_dags/tutorial.py', '--cfg-path', '/tmp/tmpw_r8cu82', '--error-file', '/tmp/tmpllkd0o41']
+[2022-06-05 19:14:24,610] {standard_task_runner.py:77} INFO - Job 220: Subtask templated
+[2022-06-05 19:14:24,640] {logging_mixin.py:104} INFO - Running <TaskInstance: tutorial.templated 2022-06-05T19:14:22.425619+00:00 [running]> on host 27f783a6f1f0
+[2022-06-05 19:14:24,675] {taskinstance.py:1257} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=airflow@example.com
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=tutorial
+AIRFLOW_CTX_TASK_ID=templated
+AIRFLOW_CTX_EXECUTION_DATE=2022-06-05T19:14:22.425619+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-06-05T19:14:22.425619+00:00
+[2022-06-05 19:14:24,676] {bash.py:135} INFO - Tmp dir root location: 
+ /tmp
+[2022-06-05 19:14:24,677] {bash.py:158} INFO - Running command: 
+
+    echo "2022-06-05"
+    echo "2022-06-12"
+    echo "Parameter I passed in"
+
+    echo "2022-06-05"
+    echo "2022-06-12"
+    echo "Parameter I passed in"
+
+    echo "2022-06-05"
+    echo "2022-06-12"
+    echo "Parameter I passed in"
+
+    echo "2022-06-05"
+    echo "2022-06-12"
+    echo "Parameter I passed in"
+
+    echo "2022-06-05"
+    echo "2022-06-12"
+    echo "Parameter I passed in"
+
+[2022-06-05 19:14:24,683] {bash.py:169} INFO - Output:
+[2022-06-05 19:14:24,684] {bash.py:173} INFO - 2022-06-05
+[2022-06-05 19:14:24,684] {bash.py:173} INFO - 2022-06-12
+[2022-06-05 19:14:24,685] {bash.py:173} INFO - Parameter I passed in
+[2022-06-05 19:14:24,685] {bash.py:173} INFO - 2022-06-05
+[2022-06-05 19:14:24,685] {bash.py:173} INFO - 2022-06-12
+[2022-06-05 19:14:24,686] {bash.py:173} INFO - Parameter I passed in
+[2022-06-05 19:14:24,686] {bash.py:173} INFO - 2022-06-05
+[2022-06-05 19:14:24,686] {bash.py:173} INFO - 2022-06-12
+[2022-06-05 19:14:24,687] {bash.py:173} INFO - Parameter I passed in
+[2022-06-05 19:14:24,687] {bash.py:173} INFO - 2022-06-05
+[2022-06-05 19:14:24,687] {bash.py:173} INFO - 2022-06-12
+[2022-06-05 19:14:24,687] {bash.py:173} INFO - Parameter I passed in
+[2022-06-05 19:14:24,688] {bash.py:173} INFO - 2022-06-05
+[2022-06-05 19:14:24,688] {bash.py:173} INFO - 2022-06-12
+[2022-06-05 19:14:24,688] {bash.py:173} INFO - Parameter I passed in
+[2022-06-05 19:14:24,688] {bash.py:177} INFO - Command exited with return code 0
+[2022-06-05 19:14:24,709] {taskinstance.py:1166} INFO - Marking task as SUCCESS. dag_id=tutorial, task_id=templated, execution_date=20220605T191422, start_date=20220605T191424, end_date=20220605T191424
+[2022-06-05 19:14:24,729] {taskinstance.py:1220} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2022-06-05 19:14:24,743] {local_task_job.py:146} INFO - Task exited with return code 0
