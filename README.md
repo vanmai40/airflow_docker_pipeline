@@ -20,7 +20,7 @@ In this project, Airflow will be use to build a pipeline that leverage public da
  - Redis: <strong>`redis:latest`</strong>
  - Postgre: <strong>`postgres:13`</strong>
  - 
-## DAG SETUP
+## DAG DESIGN
  - Dag file: `./dags/gbq_pipeline.py`
  <p align="center">
   <img src="pics/gbq_graph.png" width="1000">
