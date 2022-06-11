@@ -50,9 +50,10 @@ In this project, Airflow will be use to build a pipeline that leverage public da
 
 - Tables are created in GBQ project, and the final join table `github_hackernews_join` also get data populated
 <p align="center">
-<img src="pics/gbq_tables.png" width="400">
+<img src="pics/gbq_tables.png" width="350">
 </p>
 <p align="center">
 <img src="pics/final_table.png" width="1000">
 </p>
+
 ## DASHBOARD
