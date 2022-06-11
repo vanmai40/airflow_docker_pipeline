@@ -7,7 +7,6 @@ In this project, Airflow will be use to build a pipeline that leverage public da
 </p>
 
 ## SETUP 
-
 ### Prerequisite
 - Docker desktop
 - BigQuery account (sandbox)
