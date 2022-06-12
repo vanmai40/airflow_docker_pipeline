@@ -15,7 +15,7 @@ In this project, Airflow will be use to build a pipeline that leverage public da
  - This project leverage 2 public dataset of bigquery: <strong>`bigquery-public-data.hacker_news`</strong> and <strong>`githubarchive.day`</strong>
  - For billing, we can use sandbox account with 10GB storage, and 1TB query data free of charge monthly
 ### Docker
- - Docker compose filepath: `./docker-compose.yml`
+ - Docker compose filepath: <strong>`./docker-compose.yml`</strong>
  - Airflow image: <strong>`apache/airflow:2.0.1`</strong> (with Flower off, default examples off)
  - Redis image: <strong>`redis:latest`</strong>
  - Postgre image: <strong>`postgres:13`</strong>
@@ -30,7 +30,7 @@ In this project, Airflow will be use to build a pipeline that leverage public da
 > docker-compose up airflow-init -d
 > docker-compose up -d
 ```
-- Server at: <http://localhost:8080> (login & password: airflow)
+- Server at: <http://localhost:8080> (login & password: `airflow`)
 
 <p align="center">
 <img src="pics/all_dags.png" width="1000">
