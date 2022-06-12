@@ -27,7 +27,7 @@ default_args = {
 
 
 # Set Schedule: Run pipeline once a day. 
-# Use cron to define exact time. Eg. 8:15am would be "15 08 * * *"
+# Use cron to define exact time of 10:00 everyday
 schedule_interval = "00 10 * * *"
 
 # Define DAG: Set ID and assign default args and schedule interval
@@ -38,7 +38,7 @@ dag = DAG(
     )
 
  
-# TASK 1: check if the table_id is avaiable in input dataset 
+# TASK 1: check if the table_id of github is avaiable in input dataset 
 # if the quey return: False, 0, empty object, then error raised.
 t1 = BigQueryCheckOperator(
         task_id='check_github',
@@ -61,7 +61,7 @@ t1 = BigQueryCheckOperator(
 
 
 
-# TASK 2: check if the data is avaiable in input dataset 
+# TASK 2: check if the data of Hackernews is avaiable in input dataset 
 # if the quey return: False, 0, empty object, then error raised.
 t2 = BigQueryCheckOperator(
         task_id='check_hackernews',
@@ -82,7 +82,7 @@ t2 = BigQueryCheckOperator(
 # t2 Testing command: 
 # docker-compose run --rm airflow-webserver airflow tasks test gbq_pipeline check_hackernews 2022-06-02
 
-## Task 3: create a github daily metrics partition table
+## Task 3: create a aggregated github daily metrics, truncated writing to save up storage space
 t3 = BigQueryOperator(
         task_id='write_truncate_github_agg',    
         sql='''
@@ -123,7 +123,7 @@ t3 = BigQueryOperator(
 # docker-compose run --rm airflow-webserver airflow tasks test gbq_pipeline write_truncate_github_agg 2022-06-02
 
 
-# Task 5: aggregate hacker news data to a daily partition table
+# Task 5: create a aggregated hackernews daily metrics, truncated writing to save up storage space
 t5 = BigQueryOperator(
     task_id='write_truncate_hackernews_agg',    
     sql='''
@@ -153,7 +153,7 @@ t5 = BigQueryOperator(
 # docker-compose run --rm airflow-webserver airflow tasks test gbq_pipeline write_truncate_hackernews_agg 2022-06-02
 
 
-# Task 6: join the aggregate tables
+# Task 6: join the aggregate tables into a final incremental table by appeding writing
 t6 = BigQueryOperator(
     task_id='write_append_join_table',    
     sql=f'''
@@ -177,7 +177,7 @@ t6 = BigQueryOperator(
 # t6 Testing command: 
 # docker-compose run --rm airflow-webserver airflow tasks test gbq_pipeline write_append_join_table 2022-06-02
 
-# Task 7: Check if partition data is written successfully
+# Task 7: Check if final data is written successfully
 t7 = BigQueryCheckOperator(
     task_id='final_check_join_table',
     sql=f'''
@@ -190,13 +190,11 @@ t7 = BigQueryCheckOperator(
     use_legacy_sql=False,
     bigquery_conn_id=BQ_CONN_ID,
     dag=dag)
-# t6 Testing command: 
+# t7 Testing command: 
 # docker-compose run --rm airflow-webserver airflow tasks test gbq_pipeline final_check_join_table 2022-06-02
 
 
 # Setting Task Flow (Graph View)
-
-
 t1 >> t3
 t2 >> t5
 [t3, t5] >> t6
