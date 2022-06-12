@@ -56,6 +56,9 @@ In this project, Airflow will be use to build a pipeline that leverage public da
 </p>
 
 ## DASHBOARD 
-
-<a href="https://datastudio.google.com/u/3/reporting/0af96168-4427-4ce5-802e-6ea0889885ca/page/XGAvC" target="_blank">Dashboard Link</a>
+ - <a href="https://datastudio.google.com/u/3/reporting/0af96168-4427-4ce5-802e-6ea0889885ca/page/XGAvC" target="_blank">Dashboard Link</a>
+ 
+<p align="center">
+<img src="pics/report.png" width="1000">
+</p>
 
