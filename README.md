@@ -19,13 +19,14 @@ In this project, Airflow will be use to build a pipeline that leverage public da
  - Airflow image: <strong>`apache/airflow:2.0.1`</strong> (with Flower off, default examples off)
  - Redis image: <strong>`redis:latest`</strong>
  - Postgre image: <strong>`postgres:13`</strong>
-## DAG DESIGN
+## AIRFLOW
+### Dag design
  - Dag filepath: `./dags/gbq_pipeline.py`
  <p align="center">
   <img src="pics/gbq_graph.png" width="1000">
 </p>
 
-## RUNNING
+### Running
 ```
 > docker-compose up airflow-init -d
 > docker-compose up -d
