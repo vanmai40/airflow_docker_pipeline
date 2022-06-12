@@ -1,7 +1,7 @@
 # <p align=center>GBQ PIPELINE WITH AIRFLOW DOCKER</p>
 
 ## INTRO
-In this project, Airflow will be use to build a pipeline that leverage public dataset of Bigquery, update aggregated table on a daily basis that feed into a dashboard on Data Studio 
+In this project, Airflow will be use to build a pipeline that leverage public datasets on Bigquery, update aggregated table on a daily basis that feed into a dashboard on Data Studio 
 <p align="center">
   <img src="pics/tools.png" width="700">
 </p>
@@ -14,14 +14,13 @@ In this project, Airflow will be use to build a pipeline that leverage public da
 ### BigQuery
  - This project leverage 2 public dataset of bigquery: <strong>`bigquery-public-data.hacker_news`</strong> and <strong>`githubarchive.day`</strong>
  - For billing, we can use sandbox account with 10GB storage, and 1TB query data free of charge monthly
-### Docker Images
- - Docker compose file: `./docker-compose.yml`
- - Airflow: <strong>`apache/airflow:2.0.1`</strong> (with Flower off, default examples off)
- - Redis: <strong>`redis:latest`</strong>
- - Postgre: <strong>`postgres:13`</strong>
- - 
+### Docker
+ - Docker compose filepath: `./docker-compose.yml`
+ - Airflow image: <strong>`apache/airflow:2.0.1`</strong> (with Flower off, default examples off)
+ - Redis image: <strong>`redis:latest`</strong>
+ - Postgre image: <strong>`postgres:13`</strong>
 ## DAG DESIGN
- - Dag file: `./dags/gbq_pipeline.py`
+ - Dag filepath: `./dags/gbq_pipeline.py`
  <p align="center">
   <img src="pics/gbq_graph.png" width="1000">
 </p>
